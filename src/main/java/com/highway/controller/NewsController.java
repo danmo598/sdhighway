@@ -65,4 +65,6 @@ public class NewsController {
         return newsService.deleteNews(id);
     }
 
+
+
 }

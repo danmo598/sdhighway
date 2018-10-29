@@ -1,6 +1,7 @@
 package com.highway.news;
 
 import com.highway.common.ICommonJunit;
+import com.highway.exception.BaseException;
 import com.highway.model.News;
 import com.highway.service.INewsService;
 import com.highway.util.response.Page;
@@ -40,7 +41,7 @@ public class NewsTest  extends ICommonJunit{
     }
 
     @Test
-    public void getNewsByType(){
+    public void getNewsByType() throws BaseException {
         Page<News> newsPage = newsService.getNewsByType(1,10,0,false);
         System.out.println(newsPage);
     }

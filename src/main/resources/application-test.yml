@@ -26,9 +26,11 @@ pagehelper:
     reasonable: true
     supportMethodsArguments: true
     params: count=countSql
-book:
-  author: luxun
-  name: a bloom tree
+image:
+    filePath: /data/www/highway/upload/
+    fileHeader: FFD8FF,89504E47,47494638,49492A00,424D
+    fileType: .jpg,.gif,.png,.bmp,.jpeg,.zip
+    url: www.baidu.com
 logging:
   file: D:/log/test.log
   level: DEBUG

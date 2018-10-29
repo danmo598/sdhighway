@@ -1,5 +1,6 @@
 package com.highway.inter;
 
+import com.highway.exception.BaseException;
 import com.highway.model.News;
 import com.highway.service.INewsService;
 import com.highway.util.response.Page;
@@ -27,7 +28,7 @@ public class NewsInter {
      * @return
      */
     @GetMapping(value="getNewsByType")
-    public Page<News> getNewsByType(Integer pageNo, Integer pageSize, Integer type,boolean isPush){
+    public Page<News> getNewsByType(Integer pageNo, Integer pageSize, Integer type,boolean isPush) throws BaseException {
         return  newsService.getNewsByType(pageNo,pageSize,type,isPush);
     }
 

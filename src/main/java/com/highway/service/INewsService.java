@@ -1,5 +1,6 @@
 package com.highway.service;
 
+import com.highway.exception.BaseException;
 import com.highway.model.News;
 import com.highway.util.response.Page;
 
@@ -17,7 +18,7 @@ public interface INewsService {
 
     Integer deleteNews(Integer id);
 
-    Page<News> getNewsByType(Integer pageNo, Integer pageSize, Integer type,boolean isPush);
+    Page<News> getNewsByType(Integer pageNo, Integer pageSize, Integer type,boolean isPush) throws BaseException;
 
     News getNewsDetail(Integer id);
 }

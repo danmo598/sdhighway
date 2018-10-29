@@ -1,10 +1,13 @@
 package com.highway.service.impl;
 
 import com.github.pagehelper.PageHelper;
+import com.highway.exception.BaseException;
 import com.highway.mapper.NewsMapper;
 import com.highway.model.News;
 import com.highway.service.INewsService;
+import com.highway.util.enums.StatEnum;
 import com.highway.util.response.Page;
+import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
@@ -42,11 +45,14 @@ public class NewsServiceImpl implements INewsService {
     }
 
     @Override
-    public Page<News> getNewsByType(Integer pageNo, Integer pageSize, Integer type,boolean isPush) {
+    public Page<News> getNewsByType(Integer pageNo, Integer pageSize, Integer type,boolean isPush) throws BaseException {
        PageHelper.startPage(pageNo,pageSize,"date desc");
        Example example = new Example(News.class);
        example.createCriteria().andEqualTo("type",type).andEqualTo("isPush",isPush);
        List<News> newsList = newsMapper.selectByExample(example);
+       if(CollectionUtils.isEmpty(newsList)){
+           throw new BaseException(StatEnum.STAT_NO_DATA);
+       }
        return new Page<>(newsList);
     }
 
