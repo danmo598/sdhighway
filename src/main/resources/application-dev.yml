@@ -1,0 +1,12 @@
+server:
+  port: 9090
+  context-path: /sdhighway
+
+book:
+  author: luxun
+  name: a bloom tree
+  
+logging:
+  file: D:/log/highway.log
+  level: DEBUG
+debug: true
