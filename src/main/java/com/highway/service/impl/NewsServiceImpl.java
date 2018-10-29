@@ -4,8 +4,10 @@ import com.github.pagehelper.PageHelper;
 import com.highway.mapper.NewsMapper;
 import com.highway.model.News;
 import com.highway.service.INewsService;
+import com.highway.util.response.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
 
@@ -37,5 +39,19 @@ public class NewsServiceImpl implements INewsService {
     @Override
     public Integer deleteNews(Integer id) {
         return newsMapper.deleteByPrimaryKey(id);
+    }
+
+    @Override
+    public Page<News> getNewsByType(Integer pageNo, Integer pageSize, Integer type,boolean isPush) {
+       PageHelper.startPage(pageNo,pageSize,"date desc");
+       Example example = new Example(News.class);
+       example.createCriteria().andEqualTo("type",type).andEqualTo("isPush",isPush);
+       List<News> newsList = newsMapper.selectByExample(example);
+       return new Page<>(newsList);
+    }
+
+    @Override
+    public News getNewsDetail(Integer id) {
+        return newsMapper.selectByPrimaryKey(id);
     }
 }

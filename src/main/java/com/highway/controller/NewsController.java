@@ -16,6 +16,7 @@ import java.util.List;
  * 新闻模块
  */
 @RestController
+@RequestMapping(value = "news")
 public class NewsController {
 
     @Autowired
@@ -27,11 +28,12 @@ public class NewsController {
      * @param pageSize
      * @return
      */
-    @GetMapping(value="/getAllUsers")
+    @GetMapping(value="/getAllNews")
     public PageInfo<News> getAllNews(Integer pageNo, Integer pageSize){
         List<News> newsList =  newsService.getAllNews(pageNo,pageSize);
         return new PageInfo<>(newsList);
     }
+
 
     /**
      * 添加新闻

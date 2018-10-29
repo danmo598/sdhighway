@@ -3,7 +3,7 @@ package com.highway.news;
 import com.highway.common.ICommonJunit;
 import com.highway.model.News;
 import com.highway.service.INewsService;
-import com.sun.org.apache.bcel.internal.generic.NEW;
+import com.highway.util.response.Page;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -39,5 +39,10 @@ public class NewsTest  extends ICommonJunit{
         System.out.println(newsList.size());
     }
 
+    @Test
+    public void getNewsByType(){
+        Page<News> newsPage = newsService.getNewsByType(1,10,0,false);
+        System.out.println(newsPage);
+    }
 
 }

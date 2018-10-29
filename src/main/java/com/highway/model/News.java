@@ -19,7 +19,7 @@ public class News {
     private String url;
 
     @Column(name = "isPush")
-    private Boolean ispush;
+    private Boolean isPush;
 
     private Date date;
 
@@ -112,15 +112,15 @@ public class News {
     /**
      * @return isPush
      */
-    public Boolean getIspush() {
-        return ispush;
+    public Boolean getIsPush() {
+        return isPush;
     }
 
     /**
-     * @param ispush
+     * @param isPush
      */
-    public void setIspush(Boolean ispush) {
-        this.ispush = ispush;
+    public void setIsPush(Boolean isPush) {
+        this.isPush = isPush;
     }
 
     /**
@@ -161,7 +161,7 @@ public class News {
                 ", count=" + count +
                 ", type=" + type +
                 ", url='" + url + '\'' +
-                ", ispush=" + ispush +
+                ", isPush=" + isPush +
                 ", date=" + date +
                 ", content='" + content + '\'' +
                 '}';
