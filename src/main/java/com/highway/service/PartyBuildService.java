@@ -1,6 +1,7 @@
 package com.highway.service;
 
 import com.highway.model.PartyBuild;
+import com.highway.util.response.Page;
 
 import java.util.List;
 
@@ -19,4 +20,5 @@ public interface PartyBuildService {
 
     List<PartyBuild> getPartyBuildInfo();
 
+    Page<PartyBuild> getPartyBuilds(Integer buildType, Integer pageSize, Integer pageNumber);
 }

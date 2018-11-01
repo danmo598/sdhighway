@@ -2,6 +2,7 @@ package com.highway.controller;
 
 import com.highway.model.PartyBuild;
 import com.highway.service.PartyBuildService;
+import com.highway.util.response.Page;
 import com.highway.validation.RespMessage;
 import com.highway.validation.RespStatus;
 import lombok.extern.slf4j.Slf4j;
@@ -80,6 +81,17 @@ public class PartyBuildController {
         log.info("get partyBuildInfo to partyBuildIndex");
 
         return partyBuildService.getPartyBuildInfo();
+
+    }
+
+    @GetMapping(value = "/type")
+    public Page<PartyBuild> getPartyBuilds(@Param("partyBuildType")Integer partyBuildType,
+                                           @Param("pageSize")Integer pageSize,
+                                           @Param("pageNumber")Integer pageNumber) {
+
+        log.info("get partyBuilds by partyBuild type[{}] pageSize[{}] pageNumber[{}]",partyBuildType,pageSize,pageNumber);
+
+        return partyBuildService.getPartyBuilds(partyBuildType,pageSize,pageNumber);
 
     }
     

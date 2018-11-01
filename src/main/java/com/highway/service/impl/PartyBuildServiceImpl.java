@@ -1,11 +1,18 @@
 package com.highway.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.highway.exception.BaseException;
 import com.highway.mapper.PartyBuildMapper;
+import com.highway.model.News;
 import com.highway.model.PartyBuild;
 import com.highway.service.PartyBuildService;
+import com.highway.util.enums.StatEnum;
+import com.highway.util.response.Page;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import tk.mybatis.mapper.entity.Example;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -72,6 +79,26 @@ public class PartyBuildServiceImpl implements PartyBuildService {
 
         return partyBuildMapper.queryPartyBuilds();
 
+    }
+
+    @Override
+    public Page<PartyBuild> getPartyBuilds(Integer partyBuildType, Integer pageSize, Integer pageNumber) {
+
+        log.info("partyBuildService query partyBuilds by type[{}] pageSize[{}] pageNumber[{}]",partyBuildType,
+                pageSize,pageNumber);
+
+        PageHelper.startPage(pageNumber,pageSize,"date desc");
+        Example example = new Example(News.class);
+        example.createCriteria().andEqualTo("type",partyBuildType).andEqualTo("enabled",true);
+        List<PartyBuild> partyBuilds = partyBuildMapper.selectByExample(example);
+
+        log.info("partyBuildService get partyBuilds [{}]",partyBuilds.size());
+
+        if(CollectionUtils.isEmpty(partyBuilds)){
+            return new Page<>(new ArrayList<>());
+        }
+
+        return new Page<>(partyBuilds);
     }
 
 
