@@ -23,7 +23,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  */
 @Configuration
 @EnableSwagger2
-@ComponentScan("com.highway.inter")
 public class Swagger2 {
     /**
      * 创建API应用
@@ -38,8 +37,8 @@ public class Swagger2 {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                //.apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))
-                 .apis(RequestHandlerSelectors.basePackage("com.highway.inter"))
+                .apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))
+                 .apis(RequestHandlerSelectors.basePackage("com.highway.controller"))
                 .paths(PathSelectors.any())
                 .build();
     }
@@ -51,7 +50,7 @@ public class Swagger2 {
      */
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("山东高速官网api")
+                .title("sdwl api")
                 .description("更多请关注http://www.baidu.com")
                 .termsOfServiceUrl("http://www.baidu.com")
                 .contact("fj")
