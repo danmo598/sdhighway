@@ -40,36 +40,49 @@ public class RespStatus {
     public static final String SAVED_FAILED = "009";
     public static final String SAVED_FAILED_MSG = "save failed";
     public static final String SAVED_FAILED_MSG_CN = "保存失败";
+
+    public static final String UPDATE_FAILED = "010";
+    public static final String UPDATE_FAILED_MSG = "update failed";
+    public static final String UPDATE_FAILED_MSG_CN = "更新失败";
+
+    public static final String REMOVE_FAILED = "011";
+    public static final String REMOVE_FAILED_MSG = "remove failed";
+    public static final String REMOVE_FAILED_MSG_CN = "删除失败";
+
     public static final String REGISTERED_MSG = "registered";
     public static final String REGISTERED_MSG_CN = "已认证的";
-    public static final String UNREGISTERED = "010";
+
+    public static final String UNREGISTERED = "012";
     public static final String UNREGISTERED_MSG = "unregister";
     public static final String UNREGISTERED_MSG_CN = "未认证";
+
     public static final String CHECKED_MSG = "checked";
     public static final String CHECKED_MSG_CN = "已审核";
-    public static final String UNCHECKED = "011";
+
+    public static final String UNCHECKED = "013";
     public static final String UNCHECKED_MSG = "unchecked";
     public static final String UNCHECKED_MSG_CN = "未审核";
+
     public static final String IP_NOT_WHITE_LIST="999";
     public static final String IP_NOT_WHITE_LIST_MSG="ip地址不在白名单内";
 
-    public static final String UNDELIVERY = "012";
+    public static final String UNDELIVERY = "014";
     public static final String UNDELIVERY_MSG = "unDelivery";
     public static final String UNDELIVERY_MSG_CN = "待发货";
 
-    public static final String UNTAKEDELIVERY = "013";
+    public static final String UNTAKEDELIVERY = "015";
     public static final String UNTAKEDELIVERY_MSG = "unTakeDelivery";
     public static final String UNTAKEDELIVERY_MSG_CN = "待收货";
 
-    public static final String UNPAYMENT = "014";
+    public static final String UNPAYMENT = "016";
     public static final String UNPAYMENT_MSG = "unPayment";
     public static final String UNPAYMENT_MSG_CN = "待付款";
 
-    public static final String COMPLETED = "015";
+    public static final String COMPLETED = "017";
     public static final String COMPLETED_MSG = "completed";
     public static final String COMPLETED_MSG_CN = "已完成";
 
-    public static final String CANCELED = "016";
+    public static final String CANCELED = "018";
     public static final String CANCELED_MSG = "canceled";
     public static final String CANCELED_MSG_CN = "已取消";
 

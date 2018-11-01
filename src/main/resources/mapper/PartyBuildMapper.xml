@@ -9,10 +9,23 @@
     <result column="title" property="title" jdbcType="VARCHAR" />
     <result column="promulgator" property="promulgator" jdbcType="VARCHAR" />
     <result column="viewTimes" property="viewTimes" jdbcType="INTEGER" />
-    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="party_build_type" property="partyBuildType" jdbcType="INTEGER" />
     <result column="url" property="url" jdbcType="VARCHAR" />
     <result column="isPush" property="ispush" jdbcType="BIT" />
     <result column="date" property="date" jdbcType="TIMESTAMP" />
     <result column="content" property="content" jdbcType="LONGVARBINARY" />
+    <result column="enabled" property="enabled" jdbcType="BIT" />
   </resultMap>
+
+  <select id="queryPartyBuilds" resultMap="BaseResultMap">
+    select p.* from party_build p
+    <![CDATA[
+    where exists (
+          select count(*) from party_build
+          where party_build_type = p.party_build_type
+          and id > p.id having Count(*) < 3)
+    order by p.party_build_type,id desc
+    ]]>
+  </select>
+
 </mapper>

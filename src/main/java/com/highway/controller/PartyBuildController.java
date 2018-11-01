@@ -6,32 +6,80 @@ import com.highway.validation.RespMessage;
 import com.highway.validation.RespStatus;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.repository.query.Param;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * Created by Liu Chen on 2018/10/29.
  */
 
 @RestController
-@RequestMapping(value = "party")
+@RequestMapping(value = "/party")
 @Slf4j
 public class PartyBuildController {
 
     @Autowired
     private PartyBuildService partyBuildService;
 
-    public RespMessage addPartyBuilActivity(@RequestBody PartyBuild partyBuild) {
+    @PostMapping(value = "/addpartybuild")
+    public RespMessage addPartyBuild(@RequestBody PartyBuild partyBuild) {
 
         log.info("add new partyBuild activity,title[{}]",partyBuild.getTitle());
 
-        Integer newPartyBuildId = partyBuildService.savePartyBuildActivity(partyBuild);
+        Integer newPartyBuildId = partyBuildService.savePartyBuild(partyBuild);
 
         if (newPartyBuildId == null)
             return new RespMessage(RespStatus.SAVED_FAILED,RespStatus.SAVED_FAILED_MSG_CN);
 
         return new RespMessage(RespStatus.SUCCESS,RespStatus.SAVED_SUCCESS_MSG_CN);
+
+    }
+
+    @GetMapping(value = "/partybuild")
+    public PartyBuild viewPartyBuild(@Param("partyBuildId") Integer partyBuildId) {
+
+        log.info("viewPartyBuild by partyBuildId[{}]",partyBuildId);
+
+        return partyBuildService.viewPartyBuild(partyBuildId);
+
+    }
+
+    @PostMapping(value = "/updatePartyBuild")
+    public RespMessage updatePartyBuild(@RequestBody PartyBuild partyBuild) {
+
+        log.info("update partyBuild by partyBuildId[{}]",partyBuild.getId());
+
+        Integer updatePartyBuildId = partyBuildService.updatePartyBuild(partyBuild);
+
+        if(updatePartyBuildId == null)
+            return new RespMessage(RespStatus.UPDATE_FAILED,RespStatus.UPDATE_FAILED_MSG_CN);
+
+        return new RespMessage(RespStatus.SUCCESS,RespStatus.SAVED_SUCCESS_MSG_CN);
+
+    }
+
+    @GetMapping(value = "/removePartyBuild")
+    public RespMessage removePartyBuild(@Param("partyBuildId") Integer partyBuildId) {
+
+        log.info("remove partyBuild by partyBuildId[{}]",partyBuildId);
+
+        Integer removePartyBuildId = partyBuildService.removePartyBuild(partyBuildId);
+
+        if(removePartyBuildId == null )
+            return new RespMessage(RespStatus.REMOVE_FAILED,RespStatus.REMOVE_FAILED_MSG_CN);
+
+        return new RespMessage(RespStatus.SUCCESS,RespStatus.SUCCESS_MSG_CN);
+
+    }
+
+    @GetMapping(value = "/partybuildindex")
+    public List<PartyBuild> partyBuildInfoIndex() {
+
+        log.info("get partyBuildInfo to partyBuildIndex");
+
+        return partyBuildService.getPartyBuildInfo();
 
     }
     

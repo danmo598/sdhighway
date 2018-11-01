@@ -26,7 +26,7 @@ public class PartyBuild {
 
     private Integer viewTimes;
 
-    private Integer type;
+    private Integer partyBuildType;
 
     private String url;
 
@@ -36,5 +36,17 @@ public class PartyBuild {
     private Date date;
 
     private String content;
+
+    private Boolean enabled = true;
+
+    public PartyBuild id(Integer id) {
+        this.id = id;
+        return this;
+    }
+
+    public PartyBuild enabled(Boolean enabled) {
+        this.enabled = enabled;
+        return this;
+    }
 
 }
