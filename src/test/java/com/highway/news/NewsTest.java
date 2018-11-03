@@ -23,7 +23,7 @@ public class NewsTest  extends ICommonJunit{
     public void addNews(){
         News news = new News();
         news.setContent("test11");
-        newsService.addNews(news);
+       // newsService.addNews(news);
     }
 
     @Test
@@ -37,6 +37,7 @@ public class NewsTest  extends ICommonJunit{
     @Test
     public void getNews(){
         List<News> newsList = newsService.getAllNews(1,10);
+        System.out.println(newsList);
         System.out.println(newsList.size());
     }
 

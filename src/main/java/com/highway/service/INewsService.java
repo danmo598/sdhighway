@@ -3,7 +3,9 @@ package com.highway.service;
 import com.highway.exception.BaseException;
 import com.highway.model.News;
 import com.highway.util.response.Page;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -12,7 +14,6 @@ import java.util.List;
 public interface INewsService {
      List<News> getAllNews(Integer pageNo, Integer pageSize);
 
-    Integer addNews(News news);
 
     Integer updateNews(News news);
 
@@ -21,4 +22,8 @@ public interface INewsService {
     Page<News> getNewsByType(Integer pageNo, Integer pageSize, Integer type,boolean isPush) throws BaseException;
 
     News getNewsDetail(Integer id);
+
+    Integer addNews(News news) throws Exception;
+
+    String uploadFiles(MultipartFile url, HttpServletRequest request) throws Exception;
 }
