@@ -62,7 +62,7 @@ public class NewsController {
      * 图片上传
      * @return
      */
-    @PostMapping(value = "/uploadFiles")
+    @PostMapping(value = "/uploadFiles",produces="application/json")
     @ApiOperation(value="(后台)图片上传")
     public String uploadFiles( MultipartFile url, HttpServletRequest request) throws Exception {
         logger.info("上传文件{}",url);
