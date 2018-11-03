@@ -5,9 +5,10 @@ import com.highway.exception.BaseException;
 import com.highway.model.News;
 import com.highway.service.INewsService;
 import com.highway.util.response.Page;
-import com.highway.util.upload.UploadUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -26,6 +27,7 @@ import java.util.List;
 @RequestMapping(value = "news")
 @Api(value = "新闻相关接口")
 public class NewsController {
+    Logger logger = LoggerFactory.getLogger(NewsController.class);
 
     @Autowired
     INewsService newsService;
@@ -63,6 +65,7 @@ public class NewsController {
     @PostMapping(value = "/uploadFiles")
     @ApiOperation(value="(后台)图片上传")
     public String uploadFiles( MultipartFile url, HttpServletRequest request) throws Exception {
+        logger.info("上传文件{}",url);
         return  newsService.uploadFiles(url,request);
     }
 
