@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import tk.mybatis.mapper.entity.Example;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
@@ -23,7 +24,7 @@ import java.util.List;
 @Service
 public class NewsServiceImpl implements INewsService {
 
-    @Autowired
+    @Resource
     NewsMapper newsMapper;
 
 
@@ -33,7 +34,7 @@ public class NewsServiceImpl implements INewsService {
 
     @Override
     public List<News> getAllNews(Integer pageNo, Integer pageSize) {
-        PageHelper.startPage(pageNo,pageSize);
+        PageHelper.startPage(pageNo,pageSize,"date desc");
         return newsMapper.selectAll();
     }
 
