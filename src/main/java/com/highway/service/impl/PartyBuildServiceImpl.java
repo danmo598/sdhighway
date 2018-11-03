@@ -89,7 +89,7 @@ public class PartyBuildServiceImpl implements PartyBuildService {
 
         PageHelper.startPage(pageNumber,pageSize,"date desc");
         Example example = new Example(News.class);
-        example.createCriteria().andEqualTo("type",partyBuildType).andEqualTo("enabled",true);
+        example.createCriteria().andEqualTo("party_build_type",partyBuildType).andEqualTo("enabled",true);
         List<PartyBuild> partyBuilds = partyBuildMapper.selectByExample(example);
 
         log.info("partyBuildService get partyBuilds [{}]",partyBuilds.size());
