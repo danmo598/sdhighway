@@ -90,7 +90,7 @@ public class UploadUtil {
      */
     public String getUrlPath(String fileName, HttpServletRequest request, String date) {
         StringBuilder sb = new StringBuilder();
-        sb.append(request.getScheme()).append("://").append(url).append("/upload/").append(date).append("/").append(fileName);
+        sb.append(request.getScheme()).append("://").append(url).append("/highway/upload/").append(date).append("/").append(fileName);
         return sb.toString();
     }
 
@@ -132,7 +132,7 @@ public class UploadUtil {
      */
     public String getUrlPath(String fileName, HttpServletRequest request) {
         StringBuilder sb = new StringBuilder();
-        sb.append(request.getScheme()).append("://").append(url).append("/upload/").append(fileName);
+        sb.append(request.getScheme()).append("://").append(url).append("/highway/upload/").append(fileName);
         return sb.toString();
     }
 
