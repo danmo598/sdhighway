@@ -39,10 +39,13 @@ public class NewsServiceImpl implements INewsService {
     }
 
     @Override
-    public Integer addNews(News news, MultipartFile url, HttpServletRequest request) throws Exception {
-        String imageUrl = uploadUtil.handleImg(url,request);
-        news.setUrl(imageUrl);
+    public Integer addNews(News news) {
         return newsMapper.insertSelective(news);
+    }
+
+    @Override
+    public String uploadFiles(MultipartFile url, HttpServletRequest request) throws Exception {
+        return uploadUtil.handleImg(url,request);
     }
 
     @Override

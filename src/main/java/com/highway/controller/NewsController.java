@@ -51,8 +51,19 @@ public class NewsController {
      */
     @PostMapping(value = "/addNews")
     @ApiOperation(value="(后台)添加一条新闻")
-    public Integer addNews(@RequestBody News news, MultipartFile url, HttpServletRequest request) throws Exception {
-        return  newsService.addNews(news,url,request);
+    public Integer addNews(@RequestBody News news) throws Exception {
+        return  newsService.addNews(news);
+    }
+
+
+    /**
+     * 图片上传
+     * @return
+     */
+    @PostMapping(value = "/uploadFiles")
+    @ApiOperation(value="(后台)图片上传")
+    public String uploadFiles( MultipartFile url, HttpServletRequest request) throws Exception {
+        return  newsService.uploadFiles(url,request);
     }
 
     /**

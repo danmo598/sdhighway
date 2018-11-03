@@ -23,5 +23,7 @@ public interface INewsService {
 
     News getNewsDetail(Integer id);
 
-    Integer addNews(News news, MultipartFile url, HttpServletRequest request) throws Exception;
+    Integer addNews(News news) throws Exception;
+
+    String uploadFiles(MultipartFile url, HttpServletRequest request) throws Exception;
 }
