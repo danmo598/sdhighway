@@ -7,11 +7,14 @@ import com.highway.model.News;
 import com.highway.service.INewsService;
 import com.highway.util.enums.StatEnum;
 import com.highway.util.response.Page;
+import com.highway.util.upload.UploadUtil;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 import tk.mybatis.mapper.entity.Example;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -23,6 +26,11 @@ public class NewsServiceImpl implements INewsService {
     @Autowired
     NewsMapper newsMapper;
 
+
+    @Autowired
+    UploadUtil uploadUtil;
+
+
     @Override
     public List<News> getAllNews(Integer pageNo, Integer pageSize) {
         PageHelper.startPage(pageNo,pageSize);
@@ -30,7 +38,9 @@ public class NewsServiceImpl implements INewsService {
     }
 
     @Override
-    public Integer addNews(News news) {
+    public Integer addNews(News news, MultipartFile url, HttpServletRequest request) throws Exception {
+        String imageUrl = uploadUtil.handleImg(url,request);
+        news.setUrl(imageUrl);
         return newsMapper.insertSelective(news);
     }
 

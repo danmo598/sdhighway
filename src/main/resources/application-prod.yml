@@ -4,7 +4,7 @@ server:
 spring:
     datasource:
         name: test
-        url: jdbc:mysql://39.106.121.250:3306/sdwl
+        url: jdbc:mysql://39.106.121.250:3306/sdwl?charset=utf8
         username: manto
         password: j7DRsua&5xrH
         # 使用druid数据源

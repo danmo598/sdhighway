@@ -5,11 +5,14 @@ import com.highway.exception.BaseException;
 import com.highway.model.News;
 import com.highway.service.INewsService;
 import com.highway.util.response.Page;
+import com.highway.util.upload.UploadUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -48,8 +51,8 @@ public class NewsController {
      */
     @PostMapping(value = "/addNews")
     @ApiOperation(value="(后台)添加一条新闻")
-    public Integer addNews(@RequestBody News news){
-        return  newsService.addNews(news);
+    public Integer addNews(@RequestBody News news, MultipartFile url, HttpServletRequest request) throws Exception {
+        return  newsService.addNews(news,url,request);
     }
 
     /**
