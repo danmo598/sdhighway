@@ -1,5 +1,6 @@
 package com.highway.service;
 
+import com.highway.exception.BaseException;
 import com.highway.model.PartyBuild;
 import com.highway.util.response.Page;
 
@@ -20,5 +21,5 @@ public interface PartyBuildService {
 
     List<PartyBuild> getPartyBuildInfo();
 
-    Page<PartyBuild> getPartyBuilds(Integer buildType, Integer pageSize, Integer pageNumber);
+    Page<PartyBuild> getPartyBuilds(Integer buildType, Integer pageSize, Integer pageNumber) throws BaseException;
 }

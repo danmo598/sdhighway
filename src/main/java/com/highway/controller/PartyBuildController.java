@@ -1,5 +1,6 @@
 package com.highway.controller;
 
+import com.highway.exception.BaseException;
 import com.highway.model.PartyBuild;
 import com.highway.service.PartyBuildService;
 import com.highway.util.response.Page;
@@ -96,7 +97,7 @@ public class PartyBuildController {
     @ApiOperation(value="浏览某种类型的党建信息")
     public Page<PartyBuild> getPartyBuilds(@Param("partyBuildType")Integer partyBuildType,
                                            @Param("pageSize")Integer pageSize,
-                                           @Param("pageNumber")Integer pageNumber) {
+                                           @Param("pageNumber")Integer pageNumber) throws BaseException {
 
         log.info("get partyBuilds by partyBuild type[{}] pageSize[{}] pageNumber[{}]",partyBuildType,pageSize,pageNumber);
 

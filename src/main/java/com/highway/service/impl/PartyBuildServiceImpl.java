@@ -82,7 +82,7 @@ public class PartyBuildServiceImpl implements PartyBuildService {
     }
 
     @Override
-    public Page<PartyBuild> getPartyBuilds(Integer partyBuildType, Integer pageSize, Integer pageNumber) {
+    public Page<PartyBuild> getPartyBuilds(Integer partyBuildType, Integer pageSize, Integer pageNumber) throws BaseException {
 
         log.info("partyBuildService query partyBuilds by type[{}] pageSize[{}] pageNumber[{}]",partyBuildType,
                 pageSize,pageNumber);
@@ -96,7 +96,7 @@ public class PartyBuildServiceImpl implements PartyBuildService {
         log.info("partyBuildService get partyBuilds [{}]",partyBuilds.size());
 
         if(CollectionUtils.isEmpty(partyBuilds)){
-            return new Page<PartyBuild>(new ArrayList<PartyBuild>());
+            throw new BaseException(StatEnum.STAT_NO_DATA);
         }
 
         return new Page<>(partyBuilds);
