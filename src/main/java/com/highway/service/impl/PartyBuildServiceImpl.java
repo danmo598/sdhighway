@@ -87,15 +87,16 @@ public class PartyBuildServiceImpl implements PartyBuildService {
         log.info("partyBuildService query partyBuilds by type[{}] pageSize[{}] pageNumber[{}]",partyBuildType,
                 pageSize,pageNumber);
 
-        PageHelper.startPage(pageNumber,pageSize,"date desc");
-        Example example = new Example(News.class);
-        example.createCriteria().andEqualTo("party_build_type",partyBuildType).andEqualTo("enabled",true);
+        PageHelper.startPage(pageNumber,pageSize,"id desc");
+        Example example = new Example(PartyBuild.class);
+        example.createCriteria().andEqualTo("partyBuildType",partyBuildType)
+                .andEqualTo("enabled",true);
         List<PartyBuild> partyBuilds = partyBuildMapper.selectByExample(example);
 
         log.info("partyBuildService get partyBuilds [{}]",partyBuilds.size());
 
         if(CollectionUtils.isEmpty(partyBuilds)){
-            return new Page<>(new ArrayList<>());
+            return new Page<PartyBuild>(new ArrayList<PartyBuild>());
         }
 
         return new Page<>(partyBuilds);

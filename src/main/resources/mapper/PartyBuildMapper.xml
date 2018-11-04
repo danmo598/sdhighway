@@ -8,7 +8,7 @@
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="title" property="title" jdbcType="VARCHAR" />
     <result column="promulgator" property="promulgator" jdbcType="VARCHAR" />
-    <result column="viewTimes" property="viewTimes" jdbcType="INTEGER" />
+    <result column="view_times" property="viewTimes" jdbcType="INTEGER" />
     <result column="party_build_type" property="partyBuildType" jdbcType="INTEGER" />
     <result column="url" property="url" jdbcType="VARCHAR" />
     <result column="isPush" property="ispush" jdbcType="BIT" />
