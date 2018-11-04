@@ -25,6 +25,9 @@ public class News {
 
     private String content;
 
+    @Column(name = "news_abstract")
+    private String newsAbstract;
+
     /**
      * @return id
      */
@@ -151,6 +154,21 @@ public class News {
         this.content = content;
     }
 
+    public Boolean getPush() {
+        return isPush;
+    }
+
+    public void setPush(Boolean push) {
+        isPush = push;
+    }
+
+    public String getNewsAbstract() {
+        return newsAbstract;
+    }
+
+    public void setNewsAbstract(String newsAbstract) {
+        this.newsAbstract = newsAbstract;
+    }
 
     @Override
     public String toString() {

@@ -14,5 +14,6 @@
     <result column="isPush" property="ispush" jdbcType="BIT" />
     <result column="date" property="date" jdbcType="TIMESTAMP" />
     <result column="content" property="content" jdbcType="LONGVARBINARY" />
+    <result column="news_abstract" property="newsAbstract" jdbcType="VARCHAR" />
   </resultMap>
 </mapper>

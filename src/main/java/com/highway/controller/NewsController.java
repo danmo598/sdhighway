@@ -1,6 +1,5 @@
 package com.highway.controller;
 
-import com.alibaba.fastjson.JSONObject;
 import com.github.pagehelper.PageInfo;
 import com.highway.exception.BaseException;
 import com.highway.model.News;
