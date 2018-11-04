@@ -53,7 +53,9 @@ public class NewsServiceImpl implements INewsService {
         String returnUrl =   uploadUtil.handleImg(url,request);
         logger.info("returnUrl{}",returnUrl);
         JSONObject kkk=new JSONObject();
-        return kkk.put("url", returnUrl);
+        kkk.put("url", returnUrl);
+        logger.info("returnJson{}",kkk);
+        return kkk;
     }
 
     @Override
