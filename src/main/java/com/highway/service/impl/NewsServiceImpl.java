@@ -1,5 +1,6 @@
 package com.highway.service.impl;
 
+import com.alibaba.fastjson.JSONObject;
 import com.github.pagehelper.PageHelper;
 import com.highway.exception.BaseException;
 import com.highway.mapper.NewsMapper;
@@ -9,6 +10,7 @@ import com.highway.util.enums.StatEnum;
 import com.highway.util.response.Page;
 import com.highway.util.upload.UploadUtil;
 import org.apache.commons.collections.CollectionUtils;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -44,8 +46,10 @@ public class NewsServiceImpl implements INewsService {
     }
 
     @Override
-    public String uploadFiles(MultipartFile url, HttpServletRequest request) throws Exception {
-        return uploadUtil.handleImg(url,request);
+    public Object uploadFiles(MultipartFile url, HttpServletRequest request) throws Exception {
+        String returnUrl =   uploadUtil.handleImg(url,request);
+        JSONObject kkk=new JSONObject();
+        return kkk.put("url", returnUrl);
     }
 
     @Override

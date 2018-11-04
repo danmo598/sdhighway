@@ -1,5 +1,6 @@
 package com.highway.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.github.pagehelper.PageInfo;
 import com.highway.exception.BaseException;
 import com.highway.model.News;
@@ -12,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import springfox.documentation.spring.web.json.Json;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -64,7 +66,7 @@ public class NewsController {
      */
     @PostMapping(value = "/uploadFiles",produces="application/json")
     @ApiOperation(value="(后台)图片上传")
-    public String uploadFiles( MultipartFile url, HttpServletRequest request) throws Exception {
+    public Object uploadFiles(MultipartFile url, HttpServletRequest request) throws Exception {
         logger.info("上传文件{}",url);
         return  newsService.uploadFiles(url,request);
     }
