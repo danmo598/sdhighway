@@ -5,6 +5,8 @@ import com.highway.service.PartyBuildService;
 import com.highway.util.response.Page;
 import com.highway.validation.RespMessage;
 import com.highway.validation.RespStatus;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
@@ -19,12 +21,14 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/party")
 @Slf4j
+@Api(value = "党建相关接口")
 public class PartyBuildController {
 
     @Autowired
     private PartyBuildService partyBuildService;
 
     @PostMapping(value = "/addpartybuild")
+    @ApiOperation(value="(后台)添加党建信息")
     public RespMessage addPartyBuild(@RequestBody PartyBuild partyBuild) {
 
         log.info("add new partyBuild activity,title[{}]",partyBuild.getTitle());
@@ -39,6 +43,7 @@ public class PartyBuildController {
     }
 
     @GetMapping(value = "/partybuild")
+    @ApiOperation(value="查询单条党建信息")
     public PartyBuild viewPartyBuild(@Param("partyBuildId") Integer partyBuildId) {
 
         log.info("viewPartyBuild by partyBuildId[{}]",partyBuildId);
@@ -48,6 +53,7 @@ public class PartyBuildController {
     }
 
     @PostMapping(value = "/updatePartyBuild")
+    @ApiOperation(value="(后台)更新党建信息")
     public RespMessage updatePartyBuild(@RequestBody PartyBuild partyBuild) {
 
         log.info("update partyBuild by partyBuildId[{}]",partyBuild.getId());
@@ -62,6 +68,7 @@ public class PartyBuildController {
     }
 
     @GetMapping(value = "/removePartyBuild")
+    @ApiOperation(value="(后台)删除党建信息")
     public RespMessage removePartyBuild(@Param("partyBuildId") Integer partyBuildId) {
 
         log.info("remove partyBuild by partyBuildId[{}]",partyBuildId);
@@ -76,6 +83,7 @@ public class PartyBuildController {
     }
 
     @GetMapping(value = "/partybuildindex")
+    @ApiOperation(value="访问党建信息首页")
     public List<PartyBuild> partyBuildInfoIndex() {
 
         log.info("get partyBuildInfo to partyBuildIndex");
@@ -85,6 +93,7 @@ public class PartyBuildController {
     }
 
     @GetMapping(value = "/type")
+    @ApiOperation(value="浏览某种类型的党建信息")
     public Page<PartyBuild> getPartyBuilds(@Param("partyBuildType")Integer partyBuildType,
                                            @Param("pageSize")Integer pageSize,
                                            @Param("pageNumber")Integer pageNumber) {
