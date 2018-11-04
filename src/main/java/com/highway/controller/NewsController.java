@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import springfox.documentation.spring.web.json.Json;
+
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -68,7 +68,9 @@ public class NewsController {
     @ApiOperation(value="(后台)图片上传")
     public Object uploadFiles(MultipartFile url, HttpServletRequest request) throws Exception {
         logger.info("上传文件{}",url);
-        return  newsService.uploadFiles(url,request);
+        Object obj =  newsService.uploadFiles(url,request);
+        logger.info("obj{}",obj);
+        return obj;
     }
 
     /**
