@@ -11,6 +11,8 @@ import com.highway.util.response.Page;
 import com.highway.util.upload.UploadUtil;
 import org.apache.commons.collections.CollectionUtils;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -25,6 +27,7 @@ import java.util.List;
  */
 @Service
 public class NewsServiceImpl implements INewsService {
+    Logger logger = LoggerFactory.getLogger(NewsServiceImpl.class);
 
     @Resource
     NewsMapper newsMapper;
@@ -48,6 +51,7 @@ public class NewsServiceImpl implements INewsService {
     @Override
     public Object uploadFiles(MultipartFile url, HttpServletRequest request) throws Exception {
         String returnUrl =   uploadUtil.handleImg(url,request);
+        logger.info("returnUrl{}",returnUrl);
         JSONObject kkk=new JSONObject();
         return kkk.put("url", returnUrl);
     }
