@@ -2,6 +2,7 @@ server:
   port: 9090
   context-path: /sdhighway
 spring:
+    http.multipart.maxFileSize: 10MB
     datasource:
         name: test
         url: jdbc:mysql://39.106.121.250:3306/sdwl?charset=utf8
@@ -30,7 +31,7 @@ image:
     filePath: /data/www/highway/upload/
     fileHeader: FFD8FF,89504E47,47494638,49492A00,424D
     fileType: .jpg,.gif,.png,.bmp,.jpeg,.zip
-    url: www.baidu.com
+    url: 39.108.5.62:8080
 logging:
   file: D:/log/test.log
   level: DEBUG

@@ -3,6 +3,8 @@ package com.highway.util.upload;
 
 import com.highway.exception.FileTypeException;
 import org.apache.commons.lang.RandomStringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
@@ -22,6 +24,8 @@ import java.util.regex.Pattern;
  */
 @Component
 public class UploadUtil {
+
+    Logger logger = LoggerFactory.getLogger(UploadUtil.class);
 
 
     @Value("${image.filePath}")
@@ -51,6 +55,7 @@ public class UploadUtil {
             throw new FileTypeException();
         }
         String fileName = getFileName(file);
+        logger.info("fileName{}",fileName);
         saveFile(filePath + fileName, file);
         String urlPath = getUrlPath(fileName, request);
         return urlPath;
@@ -85,7 +90,7 @@ public class UploadUtil {
      */
     public String getUrlPath(String fileName, HttpServletRequest request, String date) {
         StringBuilder sb = new StringBuilder();
-        sb.append(request.getScheme()).append("://").append(url).append("/video-chat/upload/").append(date).append("/").append(fileName);
+        sb.append(request.getScheme()).append("://").append(url).append("/highway/upload/").append(date).append("/").append(fileName);
         return sb.toString();
     }
 
@@ -115,6 +120,7 @@ public class UploadUtil {
      * @return
      */
     public void saveFile(String fileName, MultipartFile file) throws Exception {
+        logger.info("fileName{}",fileName);
         file.transferTo(new File(fileName));
     }
 
@@ -126,7 +132,7 @@ public class UploadUtil {
      */
     public String getUrlPath(String fileName, HttpServletRequest request) {
         StringBuilder sb = new StringBuilder();
-        sb.append(request.getScheme()).append("://").append(url).append("/video-chat/upload/").append(fileName);
+        sb.append(request.getScheme()).append("://").append(url).append("/highway/upload/").append(fileName);
         return sb.toString();
     }
 
