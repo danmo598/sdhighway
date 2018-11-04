@@ -23,7 +23,7 @@
     where exists (
           select count(*) from party_build
           where party_build_type = p.party_build_type
-          and id > p.id having Count(*) < 3)
+          and id > p.id having Count(*) < 4)
     order by p.party_build_type,id desc
     ]]>
   </select>
