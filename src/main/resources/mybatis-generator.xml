@@ -27,7 +27,7 @@
         <javaClientGenerator targetPackage="com.highway.mapper" targetProject="src/main/java"
                              type="XMLMAPPER"/>
 
-        <table tableName="sd_user">
+        <table tableName="sd_event">
             <!--mysql ÅäÖÃ-->
             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
             <!--oracle ÅäÖÃ-->

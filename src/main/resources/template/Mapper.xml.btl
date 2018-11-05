@@ -1,0 +1,14 @@
+package ${package.Mapper};
+import ${package.Entity}.${entity};
+import ${package.Mapper}.CommonMapper;
+
+
+/**
+ * ${entity} mapper
+ *
+ * @author ${author}
+ * @Date  ${date}
+ */
+public interface ${entity}Mapper extends CommonMapper<${entity}> {
+
+}
