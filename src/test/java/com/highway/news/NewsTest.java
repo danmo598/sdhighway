@@ -45,6 +45,7 @@ public class NewsTest  extends ICommonJunit{
     public void getNewsByType() throws BaseException {
         Page<News> newsPage = newsService.getNewsByType(1,10,0,false);
         System.out.println(newsPage);
+
     }
 
 }
