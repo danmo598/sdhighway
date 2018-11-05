@@ -1,6 +1,4 @@
 package ${package.Controller};
-
-
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import ${package.Service}.${table.serviceName};
@@ -8,6 +6,8 @@ import ${package.Entity}.${entity};
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.highway.util.response.Page;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
 /**
  *   @description : ${entity} 控制器
@@ -18,6 +18,8 @@ import com.highway.util.response.Page;
 
 @RestController
 @RequestMapping("#if(${package.ModuleName})/${package.ModuleName}#end/#if(${controllerMappingHyphenStyle})${controllerMappingHyphen}#else${table.entityPath}#end")
+@Api(value = "${table.controllerName} 接口")
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class ${table.controllerName} {
 
     private final Logger logger = LoggerFactory.getLogger(${table.controllerName}.class);
@@ -32,7 +34,9 @@ public class ${table.controllerName} {
      * @since : Create in ${date}
      */
     @GetMapping(value = "/get${entity}List")
-    public Page<${entity}> get${entity}List(Integer pageNo,Integer pageSize) {
+    @ApiOperation(value="分页查询列表")
+    public Page<${entity}> get${entity}List(@RequestParam("pageNo")Integer pageNo
+                                    ,@RequestParam("pageSize")Integer pageSize) {
            return ${table.entityPath}Service.get${entity}(pageNo,pageSize);
     }
 
@@ -43,6 +47,7 @@ public class ${table.controllerName} {
      * @since : Create in ${date}
      */
     @PostMapping(value = "/insert${entity}")
+     @ApiOperation(value="新增")
     public Integer insert${entity}(@RequestBody ${entity} ${table.entityPath},Integer adminId) {
            return ${table.entityPath}Service.insert${entity}(${table.entityPath},adminId);
     }
@@ -54,6 +59,7 @@ public class ${table.controllerName} {
      * @since : Create in ${date}
      */
     @PostMapping(value = "/delete${entity}")
+     @ApiOperation(value="删除")
     public Integer delete${entity}(@RequestBody ${entity} ${table.entityPath},Integer adminId) {
             return ${table.entityPath}Service.delete${entity}(${table.entityPath},adminId);
     }
@@ -65,6 +71,7 @@ public class ${table.controllerName} {
      * @since : Create in ${date}
      */
     @PostMapping(value = "/update${entity}")
+     @ApiOperation(value="修改")
     public Integer update${entity}(@RequestBody ${entity} ${table.entityPath},Integer adminId) {
             return ${table.entityPath}Service.update${entity}(${table.entityPath},adminId);
     }
