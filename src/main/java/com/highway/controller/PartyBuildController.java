@@ -23,6 +23,7 @@ import java.util.List;
 @RequestMapping(value = "/party")
 @Slf4j
 @Api(value = "党建相关接口")
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class PartyBuildController {
 
     @Autowired

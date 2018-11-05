@@ -27,6 +27,7 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "news")
 @Api(value = "新闻相关接口")
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class NewsController {
     Logger logger = LoggerFactory.getLogger(NewsController.class);
 
