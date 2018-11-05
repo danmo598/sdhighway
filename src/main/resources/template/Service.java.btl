@@ -1,0 +1,21 @@
+package ${package.Service};
+
+import ${package.Entity}.${entity};
+import com.highway.util.response.Page;
+/**
+ * ${entity} service
+ *
+ * @author ${author}
+ * @Date ${date}
+ */
+public interface ${table.serviceName} {
+
+
+    Page<${entity}> get${entity}(Integer pageNo, Integer pageSize);
+
+    Integer update${entity}(${entity} ${table.entityPath},Integer adminId);
+
+    Integer insert${entity}(${entity} ${table.entityPath},Integer adminId);
+
+    Integer delete${entity}(${entity} ${table.entityPath},Integer adminId);
+}

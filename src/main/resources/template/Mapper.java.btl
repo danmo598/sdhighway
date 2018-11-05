@@ -1,0 +1,14 @@
+package com.highway.mapper;
+import com.highway.model.${entity};
+import com.highway.mapper.CommonMapper;
+
+
+/**
+ * ${entity} mapper
+ *
+ * @author ${author}
+ * @Date  ${date}
+ */
+public interface ${entity}Mapper extends CommonMapper<${entity}> {
+
+}

@@ -1,0 +1,46 @@
+package ${package.ServiceImpl};
+
+import ${package.Service}.${table.serviceName};
+import com.highway.mapper.${entity}Mapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.highway.util.response.Page;
+import com.github.pagehelper.PageHelper;
+import java.util.List;
+import com.highway.model.${entity};
+
+/**
+ * ${entity} service 实现类
+ *
+ * @author ${author}
+ * @Date ${date}
+ */
+ @Service
+public class ${entity}ServiceImpl  implements I${entity}Service{
+
+
+     @Autowired
+     ${entity}Mapper ${table.entityPath}Mapper;
+
+    @Override
+    public Page<${entity}> get${entity}(Integer pageNo, Integer pageSize) {
+        PageHelper.startPage(pageNo,pageSize);
+        List<${entity}> list = ${table.entityPath}Mapper.selectAll();
+        return new Page<>(list);
+    }
+
+    @Override
+    public Integer update${entity}(${entity} ${table.entityPath},Integer adminId) {
+         return ${table.entityPath}Mapper.updateByPrimaryKey(${table.entityPath});
+    }
+
+    @Override
+    public Integer insert${entity}(${entity} ${table.entityPath},Integer adminId) {
+         return  ${table.entityPath}Mapper.insertSelective(${table.entityPath});
+    }
+
+    @Override
+    public Integer delete${entity}(${entity} ${table.entityPath},Integer adminId) {
+         return ${table.entityPath}Mapper.deleteByPrimaryKey(${table.entityPath});
+    }
+}

@@ -1,0 +1,14 @@
+package ${package.model};
+
+
+/**
+ * ${entity}实体类
+ *
+ * @author ${author}
+ * @Date ${date}
+ */
+@TableName(${entity})
+public class ${entity} extends Model<${entity}> {
+
+
+}
