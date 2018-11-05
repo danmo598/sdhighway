@@ -1,6 +1,6 @@
-package com.highway.mapper;
-import com.highway.model.${entity};
-import com.highway.mapper.CommonMapper;
+package ${package.Mapper};
+import ${package.Entity}.${entity};
+import ${package.Mapper}.CommonMapper;
 
 
 /**

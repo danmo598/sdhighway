@@ -66,7 +66,7 @@ public class AutoGeneratorHelper {
 
         pc.setEntity("com.highway.model");
         pc.setMapper("com.highway.mapper");
-        //pc.setXml("com.highway.mapper");
+        pc.setXml("com.highway.mapper");
 
         pc.setController("com.highway.controller");
         pc.setService("com.highway.service");
@@ -86,9 +86,9 @@ public class AutoGeneratorHelper {
         tc.setController("/template/Controller.java.btl");
         tc.setService("/template/Service.java.btl");
         tc.setServiceImpl("/template/ServiceImpl.java.btl");
-        //tc.setEntity("/template/Model.java.btl");
-        tc.setMapper("/template/Mapper.java.btl");
-        //tc.setXml("/template/mapper.xml.btl");
+        tc.setEntity("/template/Model.java.btl");
+        tc.setMapper("/template/Mapper.xml.btl");
+        tc.setXml("/template/mapper.xml.btl");
 
         mpg.setTemplate(tc);
         // 执行生成
