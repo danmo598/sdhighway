@@ -38,7 +38,7 @@ public class TendersController {
     @ApiOperation(value="分页获取招标信息")
     public Page<Tenders> getTenders(@RequestParam("pageNo") Integer pageNo,
                                     @RequestParam("pageSize") Integer pageSize,
-                                    @RequestParam("cityId")Integer cityId){
+                                    @RequestParam(value = "cityId",required = false)Integer cityId){
        return  tendersService.getTenders(pageNo,pageSize,cityId);
     }
 

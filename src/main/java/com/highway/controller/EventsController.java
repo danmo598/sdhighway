@@ -32,7 +32,8 @@ public class EventsController {
     @GetMapping(value="/getEvents")
     @ApiOperation(value="分页获取大事件")
     public Page<Event> getEvents(@RequestParam("pageNo") Integer pageNo,
-                                 @RequestParam("pageSize") Integer pageSize, Date year){
+                                 @RequestParam("pageSize") Integer pageSize,
+                                 @RequestParam(value = "year",required = false) Date year){
        return  eventsService.getEvents(pageNo,pageSize,year);
     }
 
