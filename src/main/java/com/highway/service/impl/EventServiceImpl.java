@@ -22,9 +22,10 @@ public class EventServiceImpl implements IEventsService {
     EventMapper eventMapper;
 
     @Override
-    public Page<Event> getEvents(Integer pageNo, Integer pageSize, Date year) {
+    public Page<Event> getEvents(Integer pageNo, Integer pageSize, String year) {
         PageHelper.startPage(pageNo,pageSize);
         Example example = new Example(Event.class);
+        example.createCriteria().andEqualTo("year",year);
         List<Event> eventList = eventMapper.selectByExample(example);
         return new Page<>(eventList);
     }
