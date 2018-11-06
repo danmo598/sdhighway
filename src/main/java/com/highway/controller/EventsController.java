@@ -33,7 +33,7 @@ public class EventsController {
     @ApiOperation(value="分页获取大事件")
     public Page<Event> getEvents(@RequestParam("pageNo") Integer pageNo,
                                  @RequestParam("pageSize") Integer pageSize,
-                                 @RequestParam(value = "year",required = false) Date year){
+                                 @RequestParam(value = "year",required = false) String year){
        return  eventsService.getEvents(pageNo,pageSize,year);
     }
 

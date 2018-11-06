@@ -14,7 +14,7 @@ public class Event {
      */
     private Boolean simple;
 
-    private Date year;
+    private String year;
 
     @Column(name = "create_time")
     private Date createTime;
@@ -53,17 +53,11 @@ public class Event {
         this.simple = simple;
     }
 
-    /**
-     * @return year
-     */
-    public Date getYear() {
+    public String getYear() {
         return year;
     }
 
-    /**
-     * @param year
-     */
-    public void setYear(Date year) {
+    public void setYear(String year) {
         this.year = year;
     }
 
