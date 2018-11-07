@@ -29,8 +29,8 @@ pagehelper:
     params: count=countSql
 image:
     filePath: /data/www/highway/upload/
-    fileHeader: FFD8FF,89504E47,47494638,49492A00,424D
-    fileType: .jpg,.gif,.png,.bmp,.jpeg,.zip,.xlsx,.doc,.xls
+    fileHeader: FFD8FF,89504E47,47494638,49492A00,424D,504B0304,D0CF11E0,D0CF11E0
+    fileType: .jpg,.gif,.png,.bmp,.jpeg,.zip,.xlsx,.doc,.xls,.docx
     url: 39.108.5.62:8080
 logging:
   file: D:/log/test.log
