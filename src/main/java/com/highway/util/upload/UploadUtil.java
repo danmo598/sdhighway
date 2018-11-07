@@ -213,6 +213,7 @@ public class UploadUtil {
         }
         if (fileType.indexOf(extensionName) != -1) {
             String header = getFileHeader(file.getInputStream());
+            logger.error("header,{}",header);
             for (int i = 0; i < split.length; i++) {
                 if (header.indexOf(split[i]) != -1) {
                     flag = true;
