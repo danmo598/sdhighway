@@ -38,9 +38,11 @@ public class NewsServiceImpl implements INewsService {
 
 
     @Override
-    public List<News> getAllNews(Integer pageNo, Integer pageSize) {
+    public List<News> getAllNews(Integer pageNo, Integer pageSize,String title) {
         PageHelper.startPage(pageNo,pageSize,"date desc");
-        return newsMapper.selectAll();
+        Example example = new Example(News.class);
+        example.createCriteria().andLike("title",title);
+        return newsMapper.selectByExample(example);
     }
 
     @Override
