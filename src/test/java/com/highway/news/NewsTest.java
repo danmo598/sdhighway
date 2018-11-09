@@ -37,7 +37,7 @@ public class NewsTest  extends ICommonJunit{
 
     @Test
     public void getNews(){
-        List<News> newsList = newsService.getAllNews(1,10);
+        List<News> newsList = newsService.getAllNews(1,10,"");
         System.out.println(newsList);
         System.out.println(newsList.size());
     }

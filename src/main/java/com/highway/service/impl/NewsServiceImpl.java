@@ -11,6 +11,7 @@ import com.highway.util.response.Page;
 import com.highway.util.upload.UploadUtil;
 import org.apache.commons.collections.CollectionUtils;
 
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +42,12 @@ public class NewsServiceImpl implements INewsService {
     public List<News> getAllNews(Integer pageNo, Integer pageSize,String title) {
         PageHelper.startPage(pageNo,pageSize,"date desc");
         Example example = new Example(News.class);
-        example.createCriteria().andLike("title",title);
+        if(StringUtils.isNotBlank(title)){
+            title = "title like '%" + title + "%' ";
+        }
+        if(StringUtils.isNotBlank(title)){
+            example.createCriteria().andCondition(title);
+        }
         return newsMapper.selectByExample(example);
     }
 
