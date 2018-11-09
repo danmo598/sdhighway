@@ -8,6 +8,7 @@ import com.highway.util.response.Page;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -47,4 +48,11 @@ public class NewsTest  extends ICommonJunit{
         System.out.println(newsPage);
     }
 
+    @Test
+    public void getFileName(){
+        String fileName = "push.jpg";
+        String name =fileName.split("\\.")[0];
+       // String name = Arrays.toString(ss);
+        System.out.println(name);
+    }
 }
