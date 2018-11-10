@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.highway.mapper.CarMapper" >
+  <resultMap id="BaseResultMap" type="com.highway.model.Car" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="icon" property="icon" jdbcType="VARCHAR" />
+    <result column="company_id" property="companyId" jdbcType="INTEGER" />
+    <result column="create_time" property="createtime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  
+  <update id="updateCar">
+    update sd_car
+    <set>
+      <if test="name!=null and name!='' ">
+        name =#{name}
+      </if>
+      <if test="icon!=null and icon!='' ">
+        ,icon =#{icon}
+      </if>
+      <if test="companyId!=null and companyId!='' ">
+        ,company_id =#{companyId}
+      </if>
+      where id =#{id}
+    </set>
+
+  </update>
+
+</mapper>

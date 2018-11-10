@@ -30,17 +30,17 @@ public class ${entity}ServiceImpl  implements I${entity}Service{
     }
 
     @Override
-    public Integer update${entity}(${entity} ${table.entityPath},Integer adminId) {
+    public Integer update${entity}(${entity} ${table.entityPath}) {
          return ${table.entityPath}Mapper.updateByPrimaryKey(${table.entityPath});
     }
 
     @Override
-    public Integer insert${entity}(${entity} ${table.entityPath},Integer adminId) {
+    public Integer insert${entity}(${entity} ${table.entityPath}) {
          return  ${table.entityPath}Mapper.insertSelective(${table.entityPath});
     }
 
     @Override
-    public Integer delete${entity}(${entity} ${table.entityPath},Integer adminId) {
+    public Integer delete${entity}(${entity} ${table.entityPath}) {
          return ${table.entityPath}Mapper.deleteByPrimaryKey(${table.entityPath});
     }
 }

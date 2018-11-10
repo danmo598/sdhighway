@@ -7,6 +7,7 @@ import com.highway.service.INewsService;
 import com.highway.util.response.Page;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.apache.ibatis.annotations.Param;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,8 +43,8 @@ public class NewsController {
      */
     @GetMapping(value="/getAllNews")
     @ApiOperation(value="(后台)分页获取新闻")
-    public PageInfo<News> getAllNews(@RequestParam("pageNo") Integer pageNo,@RequestParam("pageSize") Integer pageSize){
-        List<News> newsList =  newsService.getAllNews(pageNo,pageSize);
+    public PageInfo<News> getAllNews(@RequestParam("pageNo") Integer pageNo, @RequestParam("pageSize") Integer pageSize, @RequestParam(value = "title",required = false)String title){
+        List<News> newsList =  newsService.getAllNews(pageNo,pageSize,title);
         return new PageInfo<>(newsList);
     }
 

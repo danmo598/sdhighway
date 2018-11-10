@@ -10,7 +10,7 @@ import ${pkg};
 #if(${entityLombokModel})
 
 import com.baomidou.mybatisplus.annotations.Version;
-
+import javax.persistence.Table;
 import lombok.Data;
 import lombok.experimental.Accessors;
 #end
@@ -28,7 +28,7 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 #end
 #if(${table.convert})
-@TableName("${table.name}")
+@Table(name="${table.name}")
 #end
 #if(${superEntityClass})
 public class ${entity} extends ${superEntityClass}#if(${activeRecord})<${entity}>#end {
@@ -53,7 +53,7 @@ public class ${entity} implements Serializable {
 #if(${field.keyFlag})
 ## 主键
 #if(${field.keyIdentityFlag})
-   @TableId(value="${field.name}", type= IdType.AUTO)
+   @Id
 #elseif(${field.convert})
     @TableId("${field.name}")
 #end

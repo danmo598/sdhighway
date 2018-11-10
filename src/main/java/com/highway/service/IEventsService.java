@@ -8,7 +8,7 @@ import java.util.Date; /**
  * Creaed by fj on 2018/11/5
  */
 public interface IEventsService {
-    Page<Event> getEvents(Integer pageNo, Integer pageSize, String year);
+    Page<Event> getEvents(Integer pageNo, Integer pageSize, String year,boolean simple);
 
     Integer addEvents(Event events);
 

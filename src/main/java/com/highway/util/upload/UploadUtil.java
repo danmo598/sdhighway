@@ -106,10 +106,11 @@ public class UploadUtil {
         // 获取图片的文件名
         String fileName = headImg.getOriginalFilename();
         // 获取图片的扩展名
+        String originName = fileName.split("\\.")[0];
         String extensionName = fileName.substring(fileName.lastIndexOf(".") + 1);
         // 新的图片文件名 = 获取时间戳+"."图片扩展名
         StringBuilder sb = new StringBuilder();
-        sb.append(System.currentTimeMillis()).append(RandomStringUtils.randomNumeric(6)).append(".").append(extensionName);
+        sb.append(originName).append(System.currentTimeMillis()).append(RandomStringUtils.randomNumeric(6)).append(".").append(extensionName);
         return sb.toString();
     }
 

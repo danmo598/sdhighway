@@ -48,8 +48,8 @@ public class ${table.controllerName} {
      */
     @PostMapping(value = "/insert${entity}")
      @ApiOperation(value="新增")
-    public Integer insert${entity}(@RequestBody ${entity} ${table.entityPath},Integer adminId) {
-           return ${table.entityPath}Service.insert${entity}(${table.entityPath},adminId);
+    public Integer insert${entity}(@RequestBody ${entity} ${table.entityPath}) {
+           return ${table.entityPath}Service.insert${entity}(${table.entityPath});
     }
 
     /**
@@ -60,8 +60,8 @@ public class ${table.controllerName} {
      */
     @PostMapping(value = "/delete${entity}")
      @ApiOperation(value="删除")
-    public Integer delete${entity}(@RequestBody ${entity} ${table.entityPath},Integer adminId) {
-            return ${table.entityPath}Service.delete${entity}(${table.entityPath},adminId);
+    public Integer delete${entity}(@RequestBody ${entity} ${table.entityPath}) {
+            return ${table.entityPath}Service.delete${entity}(${table.entityPath});
     }
 
     /**
@@ -72,8 +72,8 @@ public class ${table.controllerName} {
      */
     @PostMapping(value = "/update${entity}")
      @ApiOperation(value="修改")
-    public Integer update${entity}(@RequestBody ${entity} ${table.entityPath},Integer adminId) {
-            return ${table.entityPath}Service.update${entity}(${table.entityPath},adminId);
+    public Integer update${entity}(@RequestBody ${entity} ${table.entityPath}) {
+            return ${table.entityPath}Service.update${entity}(${table.entityPath});
     }
 
 
