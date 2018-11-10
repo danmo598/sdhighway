@@ -3,8 +3,10 @@ package com.highway.news;
 import com.highway.common.ICommonJunit;
 import com.highway.exception.BaseException;
 import com.highway.model.Car;
+import com.highway.model.CarType;
 import com.highway.model.News;
 import com.highway.service.ICarService;
+import com.highway.service.ICarTypeService;
 import com.highway.service.INewsService;
 import com.highway.util.response.Page;
 import org.junit.Test;
@@ -25,6 +27,9 @@ public class NewsTest  extends ICommonJunit{
     @Autowired
     ICarService carService;
 
+    @Autowired
+    ICarTypeService carTypeService;
+
     @Test
     public void addNews(){
         News news = new News();
@@ -36,7 +41,7 @@ public class NewsTest  extends ICommonJunit{
     public void updateNews(){
         News news = new News();
         news.setContent("test11");
-        news.setId(20);
+        news.setId(23);
         news.setIsPush(true);
         newsService.updateNews(news);
     }
@@ -67,7 +72,23 @@ public class NewsTest  extends ICommonJunit{
         //carService.getCar(1,10,1);
         Car car = new Car();
         car.setCompanyId(1);
-        car.setName("111");
-        carService.insertCar(car,1);
+        car.setName("222");
+        car.setId(1);
+        car.setName("ww");
+      //  carService.insertCar(car);
+        carService.updateCar(car);
+
+    }
+
+    @Test
+    public  void getCarType(){
+        //carService.getCar(1,10,1);
+        CarType carType = new CarType();
+       ;
+        carType.setId(1);
+        carType.setName("ww");
+        //  carService.insertCar(car);
+        carTypeService.updateCarType(carType);
+
     }
 }

@@ -11,4 +11,5 @@ import com.highway.mapper.CommonMapper;
  */
 public interface CarMapper extends CommonMapper<Car> {
 
+    Integer updateCar(Car car);
 }

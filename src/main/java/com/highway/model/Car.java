@@ -9,6 +9,7 @@ import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.activerecord.Model;
 import com.baomidou.mybatisplus.annotations.TableName;
 
+import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
 
@@ -25,7 +26,7 @@ public class Car extends Model<Car> {
 
     private static final long serialVersionUID = 1L;
 
-   @TableId(value="id", type= IdType.AUTO)
+   @Id
    private Integer id;
    private String name;
    private String icon;
