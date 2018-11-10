@@ -31,7 +31,8 @@ public class NewsTest  extends ICommonJunit{
     public void updateNews(){
         News news = new News();
         news.setContent("test11");
-        news.setId(1);
+        news.setId(20);
+        news.setIsPush(true);
         newsService.updateNews(news);
     }
 
