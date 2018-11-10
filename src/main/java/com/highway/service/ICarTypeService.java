@@ -15,9 +15,9 @@ public interface ICarTypeService {
 
     Page<CarType> getCarType(Integer pageNo, Integer pageSize, Integer carId);
 
-    Integer updateCarType(CarType carType,Integer adminId);
+    Integer updateCarType(CarType carType);
 
-    Integer insertCarType(CarType carType,Integer adminId);
+    Integer insertCarType(CarType carType);
 
-    Integer deleteCarType(CarType carType,Integer adminId);
+    Integer deleteCarType(CarType carType);
 }

@@ -2,6 +2,7 @@ package com.highway.news;
 
 import com.highway.common.ICommonJunit;
 import com.highway.exception.BaseException;
+import com.highway.model.Car;
 import com.highway.model.News;
 import com.highway.service.ICarService;
 import com.highway.service.INewsService;
@@ -63,6 +64,10 @@ public class NewsTest  extends ICommonJunit{
 
     @Test
     public  void getCar(){
-        carService.getCar(1,10,1);
+        //carService.getCar(1,10,1);
+        Car car = new Car();
+        car.setCompanyId(1);
+        car.setName("111");
+        carService.insertCar(car,1);
     }
 }

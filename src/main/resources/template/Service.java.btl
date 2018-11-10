@@ -13,9 +13,9 @@ public interface ${table.serviceName} {
 
     Page<${entity}> get${entity}(Integer pageNo, Integer pageSize);
 
-    Integer update${entity}(${entity} ${table.entityPath},Integer adminId);
+    Integer update${entity}(${entity} ${table.entityPath});
 
-    Integer insert${entity}(${entity} ${table.entityPath},Integer adminId);
+    Integer insert${entity}(${entity} ${table.entityPath});
 
-    Integer delete${entity}(${entity} ${table.entityPath},Integer adminId);
+    Integer delete${entity}(${entity} ${table.entityPath});
 }

@@ -33,17 +33,17 @@ public class CarDetailServiceImpl  implements ICarDetailService{
     }
 
     @Override
-    public Integer updateCarDetail(CarDetail carDetail,Integer adminId) {
+    public Integer updateCarDetail(CarDetail carDetail) {
          return carDetailMapper.updateByPrimaryKey(carDetail);
     }
 
     @Override
-    public Integer insertCarDetail(CarDetail carDetail,Integer adminId) {
+    public Integer insertCarDetail(CarDetail carDetail) {
          return  carDetailMapper.insertSelective(carDetail);
     }
 
     @Override
-    public Integer deleteCarDetail(CarDetail carDetail,Integer adminId) {
+    public Integer deleteCarDetail(CarDetail carDetail) {
          return carDetailMapper.deleteByPrimaryKey(carDetail);
     }
 }

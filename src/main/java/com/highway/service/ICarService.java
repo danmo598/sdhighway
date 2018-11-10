@@ -13,9 +13,9 @@ public interface ICarService {
 
     Page<Car> getCar(Integer pageNo, Integer pageSize,Integer companyId);
 
-    Integer updateCar(Car car,Integer adminId);
+    Integer updateCar(Car car);
 
-    Integer insertCar(Car car,Integer adminId);
+    Integer insertCar(Car car);
 
-    Integer deleteCar(Car car,Integer adminId);
+    Integer deleteCar(Car car);
 }

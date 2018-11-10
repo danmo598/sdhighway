@@ -12,11 +12,11 @@ public interface ICarDetailService {
 
 
 
-    Integer updateCarDetail(CarDetail carDetail,Integer adminId);
+    Integer updateCarDetail(CarDetail carDetail);
 
-    Integer insertCarDetail(CarDetail carDetail,Integer adminId);
+    Integer insertCarDetail(CarDetail carDetail);
 
-    Integer deleteCarDetail(CarDetail carDetail,Integer adminId);
+    Integer deleteCarDetail(CarDetail carDetail);
 
     Page<CarDetail> getCarDetail(Integer pageNo, Integer pageSize, Integer typeId);
 }

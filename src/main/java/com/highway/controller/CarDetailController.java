@@ -49,8 +49,8 @@ public class CarDetailController {
      */
     @PostMapping(value = "/insertCarDetail")
      @ApiOperation(value="新增")
-    public Integer insertCarDetail(@RequestBody CarDetail carDetail,Integer adminId) {
-           return carDetailService.insertCarDetail(carDetail,adminId);
+    public Integer insertCarDetail(@RequestBody CarDetail carDetail) {
+           return carDetailService.insertCarDetail(carDetail);
     }
 
     /**
@@ -61,8 +61,8 @@ public class CarDetailController {
      */
     @PostMapping(value = "/deleteCarDetail")
      @ApiOperation(value="删除")
-    public Integer deleteCarDetail(@RequestBody CarDetail carDetail,Integer adminId) {
-            return carDetailService.deleteCarDetail(carDetail,adminId);
+    public Integer deleteCarDetail(@RequestBody CarDetail carDetail) {
+            return carDetailService.deleteCarDetail(carDetail);
     }
 
     /**
@@ -73,8 +73,8 @@ public class CarDetailController {
      */
     @PostMapping(value = "/updateCarDetail")
      @ApiOperation(value="修改")
-    public Integer updateCarDetail(@RequestBody CarDetail carDetail,Integer adminId) {
-            return carDetailService.updateCarDetail(carDetail,adminId);
+    public Integer updateCarDetail(@RequestBody CarDetail carDetail) {
+            return carDetailService.updateCarDetail(carDetail);
     }
 
 

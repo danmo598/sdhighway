@@ -33,17 +33,17 @@ public class CarTypeServiceImpl  implements ICarTypeService{
     }
 
     @Override
-    public Integer updateCarType(CarType carType,Integer adminId) {
+    public Integer updateCarType(CarType carType) {
          return carTypeMapper.updateByPrimaryKey(carType);
     }
 
     @Override
-    public Integer insertCarType(CarType carType,Integer adminId) {
+    public Integer insertCarType(CarType carType) {
          return  carTypeMapper.insertSelective(carType);
     }
 
     @Override
-    public Integer deleteCarType(CarType carType,Integer adminId) {
+    public Integer deleteCarType(CarType carType) {
          return carTypeMapper.deleteByPrimaryKey(carType);
     }
 }
