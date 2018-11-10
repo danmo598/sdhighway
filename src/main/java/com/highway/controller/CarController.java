@@ -37,7 +37,7 @@ public class CarController {
     @ApiOperation(value="分页查询列表")
     public Page<Car> getCarList(@RequestParam("pageNo")Integer pageNo
                                 ,@RequestParam("pageSize")Integer pageSize,
-                                @RequestParam("companyId") Integer companyId) {
+                                @RequestParam(value = "companyId",required = false) Integer companyId) {
            return carService.getCar(pageNo,pageSize,companyId);
     }
 
