@@ -17,5 +17,5 @@ public interface ICarService {
 
     Integer insertCar(Car car);
 
-    Integer deleteCar(Car car);
+    Integer deleteCar(Integer id);
 }

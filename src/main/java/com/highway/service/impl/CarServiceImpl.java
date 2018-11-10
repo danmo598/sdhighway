@@ -43,7 +43,7 @@ public class CarServiceImpl  implements ICarService{
     }
 
     @Override
-    public Integer deleteCar(Car car) {
-         return carMapper.deleteByPrimaryKey(car);
+    public Integer deleteCar(Integer id) {
+         return carMapper.deleteByPrimaryKey(id);
     }
 }

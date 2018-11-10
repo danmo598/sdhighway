@@ -2,6 +2,8 @@ package com.highway.service;
 
 import com.highway.model.CarDetail;
 import com.highway.util.response.Page;
+import io.swagger.models.auth.In;
+
 /**
  * CarDetail service
  *
@@ -16,7 +18,7 @@ public interface ICarDetailService {
 
     Integer insertCarDetail(CarDetail carDetail);
 
-    Integer deleteCarDetail(CarDetail carDetail);
+    Integer deleteCarDetail(Integer id);
 
     Page<CarDetail> getCarDetail(Integer pageNo, Integer pageSize, Integer typeId);
 }

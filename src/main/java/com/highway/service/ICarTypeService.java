@@ -19,5 +19,5 @@ public interface ICarTypeService {
 
     Integer insertCarType(CarType carType);
 
-    Integer deleteCarType(CarType carType);
+    Integer deleteCarType(Integer id);
 }

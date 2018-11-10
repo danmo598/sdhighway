@@ -61,8 +61,8 @@ public class CarTypeController {
      */
     @PostMapping(value = "/deleteCarType")
      @ApiOperation(value="删除")
-    public Integer deleteCarType(@RequestBody CarType carType) {
-            return carTypeService.deleteCarType(carType);
+    public Integer deleteCarType(@RequestParam("id") Integer id) {
+            return carTypeService.deleteCarType(id);
     }
 
     /**
