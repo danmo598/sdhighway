@@ -11,7 +11,7 @@
     <result column="count" property="count" jdbcType="INTEGER" />
     <result column="type" property="type" jdbcType="INTEGER" />
     <result column="url" property="url" jdbcType="VARCHAR" />
-    <result column="isPush" property="ispush" jdbcType="BIT" />
+    <result column="news_Push" property="newsPush" jdbcType="BIT" />
     <result column="date" property="date" jdbcType="TIMESTAMP" />
     <result column="content" property="content" jdbcType="LONGVARBINARY" />
     <result column="news_abstract" property="newsAbstract" jdbcType="VARCHAR" />

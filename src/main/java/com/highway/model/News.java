@@ -154,13 +154,6 @@ public class News {
         this.content = content;
     }
 
-    public Boolean getPush() {
-        return isPush;
-    }
-
-    public void setPush(Boolean push) {
-        isPush = push;
-    }
 
     public String getNewsAbstract() {
         return newsAbstract;
