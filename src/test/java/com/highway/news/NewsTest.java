@@ -3,6 +3,7 @@ package com.highway.news;
 import com.highway.common.ICommonJunit;
 import com.highway.exception.BaseException;
 import com.highway.model.News;
+import com.highway.service.ICarService;
 import com.highway.service.INewsService;
 import com.highway.util.response.Page;
 import org.junit.Test;
@@ -19,6 +20,9 @@ public class NewsTest  extends ICommonJunit{
 
     @Autowired
     INewsService newsService;
+
+    @Autowired
+    ICarService carService;
 
     @Test
     public void addNews(){
@@ -55,5 +59,10 @@ public class NewsTest  extends ICommonJunit{
         String name =fileName.split("\\.")[0];
        // String name = Arrays.toString(ss);
         System.out.println(name);
+    }
+
+    @Test
+    public  void getCar(){
+        carService.getCar(1,10,1);
     }
 }

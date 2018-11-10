@@ -27,7 +27,7 @@ public class CarDetailServiceImpl  implements ICarDetailService{
     public Page<CarDetail> getCarDetail(Integer pageNo, Integer pageSize,Integer typeId) {
         PageHelper.startPage(pageNo,pageSize);
         Example example = new Example(CarDetail.class);
-        example.createCriteria().andEqualTo("type_id",typeId);
+        example.createCriteria().andEqualTo("typeId",typeId);
         List<CarDetail> list = carDetailMapper.selectByExample(example);
         return new Page<>(list);
     }

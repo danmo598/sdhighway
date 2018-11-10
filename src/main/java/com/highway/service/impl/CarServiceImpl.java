@@ -27,7 +27,7 @@ public class CarServiceImpl  implements ICarService{
     public Page<Car> getCar(Integer pageNo, Integer pageSize,Integer companyId) {
         PageHelper.startPage(pageNo,pageSize);
         Example example = new Example(Car.class);
-        example.createCriteria().andEqualTo("company_id",companyId);
+        example.createCriteria().andEqualTo("companyId",companyId);
         List<Car> list = carMapper.selectByExample(example);
         return new Page<>(list);
     }

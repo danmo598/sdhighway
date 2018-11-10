@@ -8,6 +8,8 @@ import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.activerecord.Model;
 import com.baomidou.mybatisplus.annotations.TableName;
+
+import javax.persistence.Table;
 import java.io.Serializable;
 
 /**
@@ -18,7 +20,7 @@ import java.io.Serializable;
  * @author fj123
  * @since 2018-11-10
  */
-@TableName("sd_car_detail")
+@Table(name="sd_car_detail")
 public class CarDetail extends Model<CarDetail> {
 
     private static final long serialVersionUID = 1L;
