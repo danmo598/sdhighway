@@ -5,16 +5,12 @@ spring:
     http.multipart.maxFileSize: 10MB
     datasource:
         name: test
-        url: jdbc:mysql://39.106.121.250:3306/sdwl?charset=utf8
-        username: manto
-        password: j7DRsua&5xrH
+        url: jdbc:mysql://root/gswl2018@web:3306/gdwl?charset=utf8
+        username: root
+        password: gswl2018@web
         # 使用druid数据源
         type: com.alibaba.druid.pool.DruidDataSource
         driver-class-name: com.mysql.jdbc.Driver
-    redis:
-      host: 192.168.2.248
-      port: 6379
-      password: admin
 mybatis:
     type-aliases-package: com.highway.model
     mapper-locations: classpath:mapper/*.xml
