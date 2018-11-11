@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.highway.mapper.CompanyPrincipalMapper" >
+  <resultMap id="BaseResultMap" type="com.highway.model.CompanyPrincipal" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <id column="business_scope_id" property="businessScopeId" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="principal_type" property="principalType" jdbcType="INTEGER" />
+    <result column="enabled" property="enabled" jdbcType="INTEGER" />
+  </resultMap>
+
+  <select id="selectPrincipalsByBusinessScopeId" resultMap="BaseResultMap">
+    SELECT * FROM company_principal
+    WHERE business_scope_id = #{businessScopeId}
+  </select>
+
+</mapper>

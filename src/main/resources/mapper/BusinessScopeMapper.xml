@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.highway.mapper.BusinessScopeMapper" >
+  <resultMap id="BaseResultMap" type="com.highway.model.BusinessScope" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="company_name" property="companyName" jdbcType="VARCHAR" />
+    <result column="company_image" property="companyImage" jdbcType="VARCHAR" />
+    <result column="company_abstract" property="companyAbstract" jdbcType="VARCHAR" />
+    <result column="company_type" property="companyType" jdbcType="INTEGER" />
+    <result column="company_detail" property="companyDetail" jdbcType="VARCHAR" />
+    <result column="detail_address" property="detailAddress" jdbcType="VARCHAR" />
+    <result column="enabled" property="enabled" jdbcType="INTEGER" />
+
+    <collection property="companyPrincipals" ofType="com.highway.model.CompanyPrincipal">
+      <id column="id" property="id" jdbcType="INTEGER" />
+      <result column="name" property="name" jdbcType="VARCHAR" />
+      <result column="phone" property="phone" jdbcType="VARCHAR" />
+      <result column="email" property="email" jdbcType="VARCHAR" />
+      <result column="principal_type" property="principalType" jdbcType="INTEGER" />
+      <result column="enabled" property="enabled" jdbcType="INTEGER" />
+    </collection>
+
+  </resultMap>
+
+  <select id="getBusinessScopeById" resultMap="BaseResultMap">
+    SELECT * FROM business_scope bs
+    INNER JOIN companye_principanl cp
+    ON bs.id = cp.business_scope_id
+    where bs.enabled = TRUE
+    and bs.id = #{businessScopeId}
+  </select>
+
+  <select id="getBusinessScopesByCompanyName" resultMap="BaseResultMap">
+    SELECT * FROM business_scope
+    <where>
+      enabled = TRUE
+      <if test="companyName != null and companyName != ''">
+        AND company_name LIKE '%${companyName}%'
+      </if>
+    </where>
+  </select>
+
+</mapper>
