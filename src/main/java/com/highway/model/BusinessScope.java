@@ -13,7 +13,6 @@ import java.util.List;
  */
 @Data
 @NoArgsConstructor
-@Accessors(chain = true)
 @Table(name="business_scope")
 public class BusinessScope {
 

@@ -105,7 +105,10 @@ public class BusinessScopeServiceImpl implements BusinessScopeService {
     @Override
     public List<BusinessScope> getBusinessScopesByCompanyName(String companyName) {
 
-        return businessScopeMapper.getBusinessScopesByCompanyName(companyName);
+        BusinessScope businessScope = new BusinessScope();
+        businessScope.setCompanyName(companyName);
+
+        return businessScopeMapper.getBusinessScopesByCompanyName(businessScope);
     }
 
 

@@ -14,5 +14,5 @@ public interface BusinessScopeMapper extends CommonMapper<BusinessScope> {
 
     BusinessScope getBusinessScopeById(@Param("businessScopeId") Integer businessScopeId);
 
-    List<BusinessScope> getBusinessScopesByCompanyName(@Param("companyName") String companyName);
+    List<BusinessScope> getBusinessScopesByCompanyName(@Param("companyName") BusinessScope companyName);
 }
