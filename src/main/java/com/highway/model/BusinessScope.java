@@ -1,14 +1,11 @@
 package com.highway.model;
 
-import jdk.nashorn.internal.ir.annotations.Ignore;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 
 /**
@@ -17,10 +14,10 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @Accessors(chain = true)
+@Table(name="business_scope")
 public class BusinessScope {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String companyName;
@@ -37,6 +34,7 @@ public class BusinessScope {
 
     private Boolean enabled = true;
 
+    @Transient
     private List<CompanyPrincipal> companyPrincipals;
 
 }
