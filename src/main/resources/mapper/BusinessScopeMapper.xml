@@ -15,7 +15,8 @@
     <result column="enabled" property="enabled" jdbcType="INTEGER" />
 
     <collection property="companyPrincipals" ofType="com.highway.model.CompanyPrincipal">
-      <id column="id" property="id" jdbcType="INTEGER" />
+      <id column="cp_id" property="id" jdbcType="INTEGER" />
+      <result column="business_scope_id" property="businessScopeId" jdbcType="INTEGER" />
       <result column="name" property="name" jdbcType="VARCHAR" />
       <result column="phone1" property="phone1" jdbcType="VARCHAR" />
       <result column="phone2" property="phone2" jdbcType="VARCHAR" />
@@ -24,13 +25,32 @@
       <result column="phone5" property="phone5" jdbcType="VARCHAR" />
       <result column="email" property="email" jdbcType="VARCHAR" />
       <result column="principal_type" property="principalType" jdbcType="INTEGER" />
-      <result column="enabled" property="enabled" jdbcType="INTEGER" />
+      <result column="cp_enabled" property="enabled" jdbcType="INTEGER" />
     </collection>
 
   </resultMap>
 
   <select id="getBusinessScopeById" resultMap="BaseResultMap">
-    SELECT * FROM business_scope bs
+    SELECT bs.id,
+           bs.company_name,
+           bs.company_image,
+           bs.company_abstract,
+           bs.company_type,
+           bs.company_detail,
+           bs.detail_address,
+           bs.enabled,
+           cp.id cp_id,
+           cp.business_scope_id,
+           cp.name,
+           cp.phone1,
+           cp.phone2,
+           cp.phone3,
+           cp.phone4,
+           cp.phone5,
+           cp.email,
+           cp.type principal_type,
+           cp.enabled cp_enabled
+    FROM business_scope bs
     LEFT JOIN company_principal cp
     ON bs.id = cp.business_scope_id
     where bs.enabled = TRUE
