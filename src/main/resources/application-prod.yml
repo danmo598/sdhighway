@@ -5,7 +5,7 @@ spring:
     http.multipart.maxFileSize: 10MB
     datasource:
         name: test
-        url: jdbc:mysql://root/gswl2018@web:3306/gdwl?charset=utf8
+        url: jdbc:mysql://127.0.0.1:3306/gswl?charset=utf8
         username: root
         password: gswl2018@web
         # 使用druid数据源
@@ -27,7 +27,7 @@ image:
     filePath: /data/www/highway/upload/
     fileHeader: FFD8FF,89504E47,47494638,49492A00,424D,504B0304,D0CF11E0,D0CF11E0,00000000,61706920,25504446
     fileType: .jpg,.gif,.png,.bmp,.jpeg,.zip,.xlsx,.doc,.xls,.docx,.txt,.pdf
-    url: 39.108.5.62:8080
+    url: 10.192.34.31:8080
 logging:
-  file: D:/log/test.log
+  file: /log/test.log
   level: DEBUG
