@@ -95,7 +95,7 @@ public class BusinessScopeServiceImpl implements BusinessScopeService {
             List<CompanyPrincipal> companyPrincipals = companyPrincipalMapper.
                     selectPrincipalsByBusinessScopeId(businessScope.getId());
 
-//            businessScope.setCompanyPrincipals(companyPrincipals);
+            businessScope.setCompanyPrincipals(companyPrincipals);
 
         }
 

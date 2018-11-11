@@ -17,7 +17,11 @@
     <collection property="companyPrincipals" ofType="com.highway.model.CompanyPrincipal">
       <id column="id" property="id" jdbcType="INTEGER" />
       <result column="name" property="name" jdbcType="VARCHAR" />
-      <result column="phone" property="phone" jdbcType="VARCHAR" />
+      <result column="phone1" property="phone1" jdbcType="VARCHAR" />
+      <result column="phone2" property="phone2" jdbcType="VARCHAR" />
+      <result column="phone3" property="phone3" jdbcType="VARCHAR" />
+      <result column="phone4" property="phone4" jdbcType="VARCHAR" />
+      <result column="phone5" property="phone5" jdbcType="VARCHAR" />
       <result column="email" property="email" jdbcType="VARCHAR" />
       <result column="principal_type" property="principalType" jdbcType="INTEGER" />
       <result column="enabled" property="enabled" jdbcType="INTEGER" />
@@ -27,7 +31,7 @@
 
   <select id="getBusinessScopeById" resultMap="BaseResultMap">
     SELECT * FROM business_scope bs
-    INNER JOIN companye_principanl cp
+    LEFT JOIN company_principal cp
     ON bs.id = cp.business_scope_id
     where bs.enabled = TRUE
     and bs.id = #{businessScopeId}
