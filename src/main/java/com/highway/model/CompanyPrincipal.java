@@ -35,7 +35,7 @@ public class CompanyPrincipal {
 
     private String email;
 
-    private String principalType;
+    private String type;
 
     private Boolean enabled = true;
 

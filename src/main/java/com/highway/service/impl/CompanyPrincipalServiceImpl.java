@@ -38,6 +38,6 @@ public class CompanyPrincipalServiceImpl implements CompanyPrincipalService {
 
     @Override
     public CompanyPrincipal getCompanyPrincipal(Integer id) {
-        return companyPrincipalMapper.selectById(id);
+        return companyPrincipalMapper.selectByPrimaryKey(id);
     }
 }

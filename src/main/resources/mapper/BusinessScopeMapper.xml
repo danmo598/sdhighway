@@ -24,7 +24,7 @@
       <result column="phone4" property="phone4" jdbcType="VARCHAR" />
       <result column="phone5" property="phone5" jdbcType="VARCHAR" />
       <result column="email" property="email" jdbcType="VARCHAR" />
-      <result column="type" property="principalType" jdbcType="INTEGER" />
+      <result column="type" property="type" jdbcType="INTEGER" />
       <result column="cp_enabled" property="enabled" jdbcType="INTEGER" />
     </collection>
 

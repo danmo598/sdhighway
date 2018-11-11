@@ -14,18 +14,13 @@
     <result column="phone4" property="phone4" jdbcType="VARCHAR" />
     <result column="phone5" property="phone5" jdbcType="VARCHAR" />
     <result column="email" property="email" jdbcType="VARCHAR" />
-    <result column="type" property="principalType" jdbcType="INTEGER" />
+    <result column="type" property="type" jdbcType="INTEGER" />
     <result column="enabled" property="enabled" jdbcType="INTEGER" />
   </resultMap>
 
   <select id="selectPrincipalsByBusinessScopeId" resultMap="BaseResultMap">
     SELECT * FROM company_principal
     WHERE business_scope_id = #{businessScopeId}
-  </select>
-
-  <select id="selectById" resultMap="BaseResultMap">
-    SELECT * FROM company_principal
-    WHERE id = #{id}
   </select>
 
 </mapper>
