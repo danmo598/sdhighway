@@ -12,4 +12,6 @@ import java.util.List;
 @Repository
 public interface CompanyPrincipalMapper extends CommonMapper<CompanyPrincipal> {
     List<CompanyPrincipal> selectPrincipalsByBusinessScopeId(@Param("businessScopeId") Integer businessScopeId);
+
+    CompanyPrincipal selectById(@Param("id") Integer id);
 }

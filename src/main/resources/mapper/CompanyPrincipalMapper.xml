@@ -23,4 +23,9 @@
     WHERE business_scope_id = #{businessScopeId}
   </select>
 
+  <select id="selectById" resultMap="BaseResultMap">
+    SELECT * FROM company_principal
+    WHERE id = #{id}
+  </select>
+
 </mapper>
