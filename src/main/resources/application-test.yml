@@ -5,7 +5,7 @@ spring:
     http.multipart.maxFileSize: 10MB
     datasource:
         name: test
-        url: jdbc:mysql://39.108.5.62:3306/sdwl?charset=utf8
+        url: jdbc:mysql://39.108.5.62:3306/sdwl?useUnicode=true&characterEncoding=UTF-8
         username: root
         password: admin@2018
         # 使用druid数据源

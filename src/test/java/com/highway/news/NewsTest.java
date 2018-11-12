@@ -31,10 +31,10 @@ public class NewsTest  extends ICommonJunit{
     ICarTypeService carTypeService;
 
     @Test
-    public void addNews(){
+    public void addNews() throws Exception {
         News news = new News();
-        news.setContent("test11");
-       // newsService.addNews(news);
+        news.setContent("内容");
+        newsService.addNews(news);
     }
 
     @Test
