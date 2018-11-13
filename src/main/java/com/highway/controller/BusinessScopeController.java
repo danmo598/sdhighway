@@ -1,5 +1,6 @@
 package com.highway.controller;
 
+import com.highway.dto.ResponseDTO;
 import com.highway.exception.BaseException;
 import com.highway.model.BusinessScope;
 import com.highway.service.BusinessScopeService;
@@ -91,13 +92,13 @@ public class BusinessScopeController {
 
     @GetMapping(value = "/businessscopes")
     @ApiOperation(value="分页查询业务领域")
-    public List<BusinessScope> getBusinessScopes(@Param("companyType")Integer companyType,
-                                           @Param("pageSize")Integer pageSize,
-                                           @Param("pageNumber")Integer pageNumber) throws BaseException {
+    public ResponseDTO getBusinessScopes(@Param("companyType")Integer companyType,
+                                         @Param("pageSize")Integer pageSize,
+                                         @Param("pageNumber")Integer pageNumber) throws BaseException {
 
         log.info("get partyBuilds by partyBuild type[{}] pageSize[{}] pageNumber[{}]",companyType,pageSize,pageNumber);
 
-        return businessScopeService.getBusinessScopes(companyType,pageSize,pageNumber);
+        return new ResponseDTO(businessScopeService.getBusinessScopes(companyType,pageSize,pageNumber));
 
     }
 
