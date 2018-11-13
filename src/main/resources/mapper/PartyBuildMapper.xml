@@ -11,7 +11,7 @@
     <result column="view_times" property="viewTimes" jdbcType="INTEGER" />
     <result column="party_build_type" property="partyBuildType" jdbcType="INTEGER" />
     <result column="url" property="url" jdbcType="VARCHAR" />
-    <result column="isPush" property="ispush" jdbcType="BIT" />
+    <result column="isPush" property="isPush" jdbcType="BIT" />
     <result column="date" property="date" jdbcType="TIMESTAMP" />
     <result column="content" property="content" jdbcType="LONGVARBINARY" />
     <result column="enabled" property="enabled" jdbcType="BIT" />
