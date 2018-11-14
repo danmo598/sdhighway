@@ -98,7 +98,7 @@ public class BusinessScopeController {
 
         log.info("get partyBuilds by partyBuild type[{}] pageSize[{}] pageNumber[{}]",companyType,pageSize,pageNumber);
 
-        return new ResponseDTO(businessScopeService.getBusinessScopes(companyType,pageSize,pageNumber));
+        return new ResponseDTO(businessScopeService.getBusinessScopes(companyType,pageSize,pageNumber),pageSize,pageNumber);
 
     }
 
