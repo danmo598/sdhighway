@@ -1,5 +1,7 @@
 package com.highway.controller;
 
+import com.highway.dto.ResponseDTO;
+import com.highway.exception.BaseException;
 import com.highway.model.CompanyPrincipal;
 import com.highway.service.CompanyPrincipalService;
 import com.highway.validation.RespMessage;
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value = "/principal")
 @Slf4j
 @Api(value = "业务领域")
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class CompanyPrincipalController {
 
     @Autowired
@@ -72,6 +75,17 @@ public class CompanyPrincipalController {
     @ApiOperation(value="根据id获取公司负责人信息")
     public CompanyPrincipal getCompanyPrincipal(@Param("id")Integer id) {
         return companyPrincipalService.getCompanyPrincipal(id);
+    }
+
+    @GetMapping(value = "/companyprincipals")
+    @ApiOperation(value="分页查询业务领域")
+    public ResponseDTO getCompanyPrincipals(@Param("pageSize")Integer pageSize,
+                                            @Param("pageNumber")Integer pageNumber) throws BaseException {
+
+        log.info("get all company principals by pageSize[{}] pageNumber[{}]",pageSize,pageNumber);
+
+        return new ResponseDTO(companyPrincipalService.getCompanyPrincipals(pageSize,pageNumber),pageSize,pageNumber);
+
     }
 
 }

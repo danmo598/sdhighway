@@ -22,7 +22,7 @@ import java.util.List;
 @RequestMapping(value = "/business")
 @Slf4j
 @Api(value = "业务领域")
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin
 public class BusinessScopeController {
 
     @Autowired
