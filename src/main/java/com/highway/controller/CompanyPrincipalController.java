@@ -78,7 +78,7 @@ public class CompanyPrincipalController {
     }
 
     @GetMapping(value = "/companyprincipals")
-    @ApiOperation(value="分页查询业务领域")
+    @ApiOperation(value="分页查询所有联系人")
     public ResponseDTO getCompanyPrincipals(@Param("pageSize")Integer pageSize,
                                             @Param("pageNumber")Integer pageNumber) throws BaseException {
 
