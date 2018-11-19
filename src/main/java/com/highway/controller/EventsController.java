@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
+import java.util.List;
 
 
 /**
@@ -36,6 +37,13 @@ public class EventsController {
                                  @RequestParam(value = "year",required = false) String year,
                                  @RequestParam(value = "simple",required = false)boolean simple){
        return  eventsService.getEvents(pageNo,pageSize,year,simple);
+    }
+
+
+    @GetMapping(value="/getAllEvents")
+    @ApiOperation(value="获取大事件")
+    public List<Event> getAllEvents(@RequestParam(value = "year",required = false) String year){
+        return  eventsService.getAllEvents(year);
     }
 
     /**

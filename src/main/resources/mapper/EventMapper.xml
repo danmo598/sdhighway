@@ -11,4 +11,12 @@
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="events" property="events" jdbcType="LONGVARCHAR" />
   </resultMap>
+
+  <select id="getAllEvents" resultMap="BaseResultMap">
+    select * from sd_event where 1=1
+    <if test="year!=null and year!='' ">
+      and year =#{year}
+    </if>
+    order by year
+  </select>
 </mapper>

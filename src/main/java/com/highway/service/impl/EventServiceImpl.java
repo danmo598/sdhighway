@@ -44,4 +44,10 @@ public class EventServiceImpl implements IEventsService {
     public Integer deleteEvents(Integer id) {
         return eventMapper.deleteByPrimaryKey(id);
     }
+
+    @Override
+    public List<Event> getAllEvents(String year) {
+        List<Event> eventList = eventMapper.getAllEvents(year);
+        return  eventList;
+    }
 }

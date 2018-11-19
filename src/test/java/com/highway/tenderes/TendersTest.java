@@ -3,6 +3,7 @@ package com.highway.tenderes;
 import com.highway.common.ICommonJunit;
 import com.highway.model.City;
 import com.highway.service.IConnectUsService;
+import com.highway.service.IEventsService;
 import com.highway.service.ITendersService;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,9 @@ public class TendersTest extends ICommonJunit {
 
     @Autowired
     IConnectUsService connectUsService;
+
+    @Autowired
+    IEventsService eventsService;
 
     @Test
     public void selectTenders(){
