@@ -30,4 +30,14 @@ public class UserServiceImpl implements IUserService {
         }
         return true;
     }
+
+    @Override
+    public Integer updateUser(User user) {
+        return userMapper.updateByPrimaryKey(user);
+    }
+
+    @Override
+    public Integer addUser(User user) {
+        return userMapper.insertSelective(user);
+    }
 }

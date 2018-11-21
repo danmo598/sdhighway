@@ -6,4 +6,8 @@ import com.highway.model.User; /**
  */
 public interface IUserService {
     boolean login(User user) throws BaseException;
+
+    Integer updateUser(User user);
+
+    Integer addUser(User user);
 }

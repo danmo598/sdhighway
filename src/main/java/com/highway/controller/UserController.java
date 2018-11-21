@@ -29,4 +29,25 @@ public class UserController {
     public boolean  login(@RequestBody User user) throws BaseException {
        return userService.login(user);
     }
+
+
+    /**
+     * 修改密码
+     * @param user
+     */
+    @PostMapping(value = "updateUser")
+    @ApiOperation(value = "(后台)修改密码")
+    public Integer  updateUser(@RequestBody User user) throws BaseException {
+        return userService.updateUser(user);
+    }
+
+    /**
+     * 添加账号
+     * @param user
+     */
+    @PostMapping(value = "addUser")
+    @ApiOperation(value = "(后台)新增用户")
+    public Integer  addUser(@RequestBody User user) throws BaseException {
+        return userService.addUser(user);
+    }
 }
