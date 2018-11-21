@@ -33,11 +33,15 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public Integer updateUser(User user) {
+        String password = MD5Util.MD5Encode(user.getPassword(), "utf-8");
+        user.setPassword(password);
         return userMapper.updateByPrimaryKey(user);
     }
 
     @Override
     public Integer addUser(User user) {
+        String password = MD5Util.MD5Encode(user.getPassword(), "utf-8");
+        user.setPassword(password);
         return userMapper.insertSelective(user);
     }
 }
