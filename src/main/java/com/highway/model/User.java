@@ -16,7 +16,7 @@ public class User {
 
     private String email;
 
-    private Integer phone;
+    private String phone;
 
     private Date date;
 
@@ -76,17 +76,11 @@ public class User {
         this.email = email;
     }
 
-    /**
-     * @return phone
-     */
-    public Integer getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    /**
-     * @param phone
-     */
-    public void setPhone(Integer phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 

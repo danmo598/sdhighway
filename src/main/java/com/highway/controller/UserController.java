@@ -1,8 +1,10 @@
 package com.highway.controller;
 
 import com.highway.exception.BaseException;
+import com.highway.model.Car;
 import com.highway.model.User;
 import com.highway.service.IUserService;
+import com.highway.util.response.Page;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,15 @@ public class UserController {
 
     @Autowired
     IUserService userService;
+
+
+    @GetMapping(value = "/getUserList")
+    @ApiOperation(value="分页查询列表")
+    public Page<User> getUserList(@RequestParam("pageNo")Integer pageNo
+            , @RequestParam("pageSize")Integer pageSize) {
+        return userService.getUserList(pageNo,pageSize);
+    }
+
 
     /**
      * 登录
