@@ -90,6 +90,7 @@ public class NewsServiceImpl implements INewsService {
 
     @Override
     public News getNewsDetail(Integer id) {
+        newsMapper.updateById(id);
         return newsMapper.selectByPrimaryKey(id);
     }
 }

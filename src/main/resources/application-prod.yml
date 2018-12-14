@@ -5,9 +5,9 @@ spring:
     http.multipart.maxFileSize: 10MB
     datasource:
         name: test
-        url: jdbc:mysql://127.0.0.1:3306/gswl?useUnicode=true&characterEncoding=UTF-8
+        url: jdbc:mysql://localhost:3306/gswl?useUnicode=true&characterEncoding=UTF-8
         username: root
-        password: gswl2018@web
+        password: panyong13793126980
         # 使用druid数据源
         type: com.alibaba.druid.pool.DruidDataSource
         driver-class-name: com.mysql.jdbc.Driver
@@ -27,7 +27,7 @@ image:
     filePath: /data/www/highway/upload/
     fileHeader: FFD8FF,89504E47,47494638,49492A00,424D,504B0304,D0CF11E0,D0CF11E0,00000000,61706920,25504446
     fileType: .jpg,.gif,.png,.bmp,.jpeg,.zip,.xlsx,.doc,.xls,.docx,.txt,.pdf
-    url: 10.192.34.31:8080
+    url: www.sdgswl.com
 logging:
   file: /log/test.log
   level: DEBUG

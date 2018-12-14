@@ -92,4 +92,9 @@ public class NewsTest  extends ICommonJunit{
         carTypeService.updateCarType(carType);
 
     }
+
+    @Test
+    public void getNewsDetail(){
+        newsService.getNewsDetail(24);
+    }
 }

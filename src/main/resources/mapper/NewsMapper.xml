@@ -16,4 +16,8 @@
     <result column="content" property="content" jdbcType="LONGVARBINARY" />
     <result column="news_abstract" property="newsAbstract" jdbcType="VARCHAR" />
   </resultMap>
+
+  <update id="updateById">
+    update news set count =count+1 where id =#{id}
+  </update>
 </mapper>
