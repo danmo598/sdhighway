@@ -87,7 +87,7 @@ public class PartyBuildServiceImpl implements PartyBuildService {
         log.info("partyBuildService query partyBuilds by type[{}] pageSize[{}] pageNumber[{}]",partyBuildType,
                 pageSize,pageNumber);
 
-        PageHelper.startPage(pageNumber,pageSize,"crete_time desc");
+        PageHelper.startPage(pageNumber,pageSize,"create_time desc");
         Example example = new Example(PartyBuild.class);
         example.createCriteria().andEqualTo("partyBuildType",partyBuildType)
                 .andEqualTo("enabled",true);
