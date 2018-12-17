@@ -36,6 +36,10 @@ public class TendersServiceImpl implements ITendersService {
         Example example = new Example(Tenders.class);
         example.createCriteria().andEqualTo("cityId",cityId);
         List<Tenders> tendersList = tendersMapper.selectByExample(example);
+        tendersList.stream().forEach(tenders -> {
+            tenders.setWatchTimes(tenders.getWatchTimes()+1);
+            tendersMapper.updateByPrimaryKey(tenders);
+        });
         return new Page<>(tendersList);
     }
 

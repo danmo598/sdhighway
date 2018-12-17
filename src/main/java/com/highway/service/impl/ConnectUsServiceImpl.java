@@ -24,6 +24,10 @@ public class ConnectUsServiceImpl implements IConnectUsService {
     public Page<ConnectUs> getConnects(Integer pageNo, Integer pageSize) {
         PageHelper.startPage(pageNo,pageSize);
         List<ConnectUs> connectUsList = connectUsMapper.selectAll();
+        connectUsList.stream().forEach(connectUs -> {
+            connectUs.setWatchTimes(connectUs.getWatchTimes()+1);
+            connectUsMapper.updateByPrimaryKey(connectUs);
+        });
         return new Page<>(connectUsList);
     }
 
