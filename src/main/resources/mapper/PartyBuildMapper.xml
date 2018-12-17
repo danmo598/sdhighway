@@ -25,7 +25,7 @@
           where party_build_type = p.party_build_type
           and id > p.id having Count(*) < 4)
           and enabled = 1
-    order by p.party_build_type,id desc
+    order by p.date desc
     ]]>
   </select>
 
