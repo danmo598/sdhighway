@@ -22,7 +22,7 @@ public class ConnectUsServiceImpl implements IConnectUsService {
 
     @Override
     public Page<ConnectUs> getConnects(Integer pageNo, Integer pageSize) {
-        PageHelper.startPage(pageNo,pageSize,"publishDate desc");
+        PageHelper.startPage(pageNo,pageSize,"publish_date desc");
         List<ConnectUs> connectUsList = connectUsMapper.selectAll();
         connectUsList.stream().forEach(connectUs -> {
             if(connectUs!=null && connectUs.getWatchTimes()!=null){
